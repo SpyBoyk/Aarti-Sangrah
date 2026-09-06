@@ -289,14 +289,12 @@ export default function Home() {
   return (
     <div className="space-y-12 sm:space-y-16 md:space-y-20">
 
-      {/* ═══════════════ MAJESTIC HERO SECTION ═══════════════ */}
-      <section className="relative overflow-hidden rounded-[2.5rem] border border-amber-200/80 bg-gradient-to-b from-amber-50/50 via-white to-orange-50/30 p-4 shadow-xl sm:p-6 md:p-8 lg:p-10 dark:border-amber-950/40 dark:from-stone-900/90 dark:via-stone-900 dark:to-stone-950">
+      {/* ═══════════════ MAJESTIC HERO SECTION (WHITE BG) ═══════════════ */}
+      <section className="relative overflow-hidden rounded-[2.5rem] border border-stone-200/90 bg-white p-4 shadow-xl sm:p-6 md:p-8 lg:p-10 dark:border-stone-800 dark:bg-stone-900">
         
-        {/* Subtle royal background auras */}
+        {/* Subtle background glow */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
           <div className="royal-glow absolute top-0 left-1/2 -translate-x-1/2 h-[450px] w-full" />
-          <div className="absolute -top-32 -right-24 h-96 w-96 rounded-full bg-amber-400/10 blur-3xl dark:bg-amber-500/10" />
-          <div className="absolute -bottom-24 -left-20 h-80 w-80 rounded-full bg-orange-400/10 blur-3xl dark:bg-amber-600/10" />
         </div>
 
         <div className="relative grid items-center gap-8 lg:grid-cols-12 lg:gap-10">
@@ -530,8 +528,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════════════ DEITY CIRCULAR STORIES STRIP (MOVING ANIMATION) ═══════════════ */}
-      <section aria-label="देवता दर्शन पट्टी" className="relative overflow-hidden">
+      {/* ═══════════════ DEITY CIRCULAR STORIES STRIP (WHITE BG & CLEAN NO DUPLICATES) ═══════════════ */}
+      <section aria-label="देवता दर्शन पट्टी" className="relative rounded-3xl border border-stone-200/90 bg-white p-4.5 shadow-sm dark:border-stone-800 dark:bg-stone-900">
         <div className="mb-3.5 flex items-center justify-between px-1">
           <div className="flex items-center gap-2">
             <SacredDiyaIcon size={16} className="text-[#174478] dark:text-sky-400" />
@@ -547,33 +545,31 @@ export default function Home() {
           </Link>
         </div>
 
-        {/* Continuous Infinite Moving Animation Marquee Track */}
-        <div className="relative w-full overflow-hidden py-1">
-          <div className="flex w-max items-center gap-5 sm:gap-6 animate-marquee hover:[animation-play-state:paused]">
-            {[...DEITY_STORIES, ...DEITY_STORIES].map((d, idx) => {
-              const count = categoryCounts[d.id] || 0;
-              return (
-                <Link
-                  key={`${d.id}-${idx}`}
-                  to={`/aartis?category=${d.id}`}
-                  className="group flex flex-col items-center shrink-0 text-center transition-transform active:scale-95"
-                >
-                  {/* Glowing Circular Avatar with #174478 & Gold ring */}
-                  <div className="relative p-0.5 rounded-full bg-gradient-to-tr from-[#174478] via-amber-500 to-[#174478] shadow-md transition-all duration-300 group-hover:shadow-[#174478]/40 group-hover:scale-105">
-                    <div className="flex h-15 w-15 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-white dark:bg-stone-900">
-                      <DeityIcon id={d.id} size={28} className="text-[#174478] dark:text-sky-300 transition-transform group-hover:scale-110" />
-                    </div>
+        {/* Clean, Non-duplicated horizontal deity cards */}
+        <div className="no-scrollbar flex items-center gap-3.5 sm:gap-4 overflow-x-auto pb-1 pt-1 px-1">
+          {DEITY_STORIES.map((d) => {
+            const count = categoryCounts[d.id] || 0;
+            return (
+              <Link
+                key={d.id}
+                to={`/aartis?category=${d.id}`}
+                className="group flex flex-col items-center shrink-0 text-center rounded-2xl border border-stone-200/80 bg-stone-50/60 px-3.5 py-3 transition-all duration-300 hover:border-[#174478] hover:bg-white hover:shadow-md active:scale-95 dark:border-stone-800 dark:bg-stone-800/60 dark:hover:border-sky-400 dark:hover:bg-stone-800"
+              >
+                {/* Circular Avatar */}
+                <div className="relative p-0.5 rounded-full bg-gradient-to-tr from-[#174478] via-amber-400 to-[#174478] shadow-xs transition-transform duration-300 group-hover:scale-105">
+                  <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-white dark:bg-stone-900">
+                    <DeityIcon id={d.id} size={28} className="text-[#174478] dark:text-sky-300 transition-transform group-hover:scale-110" />
                   </div>
-                  <span className="mt-2 block max-w-[85px] truncate text-xs font-bold text-stone-900 group-hover:text-[#174478] dark:text-stone-100 dark:group-hover:text-sky-300">
-                    {d.name}
-                  </span>
-                  <span className="text-[11px] font-extrabold text-[#174478] dark:text-sky-400">
-                    {toMr(count)} आरत्या
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
+                </div>
+                <span className="mt-2 block max-w-[85px] truncate text-xs font-bold text-stone-900 group-hover:text-[#174478] dark:text-stone-100 dark:group-hover:text-sky-300">
+                  {d.name}
+                </span>
+                <span className="mt-0.5 rounded-full bg-white border border-stone-200 px-2 py-0.5 text-[10px] font-extrabold text-[#174478] dark:bg-stone-900 dark:border-stone-700 dark:text-sky-300">
+                  {toMr(count)} आरत्या
+                </span>
+              </Link>
+            );
+          })}
         </div>
       </section>
 
