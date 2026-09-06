@@ -1,5 +1,5 @@
 import { Link, useSearchParams } from 'react-router-dom';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { CATEGORIES, ITEMS } from '../data/aartis';
 import SectionHeading from '../components/SectionHeading';
 import { DeityIcon } from '../components/DeityIcon';

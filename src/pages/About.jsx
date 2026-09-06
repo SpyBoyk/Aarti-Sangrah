@@ -59,13 +59,13 @@ export default function About() {
           {/* Right Image Collage - Compact & centered on mobile */}
           <div className="fade-up fade-up-1 grid grid-cols-2 gap-2 w-full max-w-md mx-auto lg:mx-0">
             <div className="h-24 sm:h-28 overflow-hidden rounded-xl border border-stone-100 shadow-xs dark:border-stone-800">
-              <img src="/about-5.jpg" alt="मंदिर सजावट" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
+              <img src="/about-5.webp" alt="मंदिर सजावट" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
             </div>
             <div className="h-24 sm:h-28 overflow-hidden rounded-xl border border-stone-100 shadow-xs dark:border-stone-800">
-              <img src="/about-9.jpg" alt="गावकरी उत्सव" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
+              <img src="/about-9.webp" alt="गावकरी उत्सव" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
             </div>
             <div className="col-span-2 h-24 sm:h-28 overflow-hidden rounded-xl border border-stone-100 shadow-xs dark:border-stone-800">
-              <img src="/about-1.jpg" alt="वाजेवाडी समुदाय" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
+              <img src="/about-1.webp" alt="वाजेवाडी समुदाय" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" />
             </div>
           </div>
         </div>
@@ -133,14 +133,14 @@ export default function About() {
 
         <div className="grid grid-cols-2 gap-2 sm:gap-2.5 md:grid-cols-4">
           {[
-            { src: '/about-5.jpg', alt: 'श्री राधा-कृष्ण मंदिर सजावट' },
-            { src: '/about-9.jpg', alt: 'गावकरी — उत्सव सामूहिक जल्लोष' },
-            { src: '/about-3.jpg', alt: '॥ आम्ही वाजेवाडीकर ॥' },
-            { src: '/about-2.jpg', alt: 'वाजेवाडी ग्रामस्थ — उत्सव' },
-            { src: '/about-4.jpg', alt: '॥ स्वयंभू श्री सुकाई देवी प्रसन्न ॥' },
-            { src: '/about-1.jpg', alt: 'समुदाय सामूहिक छायाचित्र' },
-            { src: '/about-8.jpg', alt: 'मंदिर पूजा सजावट' },
-            { src: '/about-10.jpg', alt: 'गावकरी समूह — उत्सवी क्षण' },
+            { src: '/about-5.webp', alt: 'श्री राधा-कृष्ण मंदिर सजावट' },
+            { src: '/about-9.webp', alt: 'गावकरी — उत्सव सामूहिक जल्लोष' },
+            { src: '/about-3.webp', alt: '॥ आम्ही वाजेवाडीकर ॥' },
+            { src: '/about-2.webp', alt: 'वाजेवाडी ग्रामस्थ — उत्सव' },
+            { src: '/about-4.webp', alt: '॥ स्वयंभू श्री सुकाई देवी प्रसन्न ॥' },
+            { src: '/about-1.webp', alt: 'समुदाय सामूहिक छायाचित्र' },
+            { src: '/about-8.webp', alt: 'मंदिर पूजा सजावट' },
+            { src: '/about-10.webp', alt: 'गावकरी समूह — उत्सवी क्षण' },
           ].map(({ src, alt }, i) => (
             <div
               key={i}
@@ -201,7 +201,7 @@ export default function About() {
           {/* Right image - Small compact size */}
           <div className="relative h-36 sm:h-48 lg:h-full lg:max-h-[220px] overflow-hidden border-t border-stone-100 lg:border-t-0 lg:border-l dark:border-stone-800">
             <img
-              src="/about-8.jpg"
+              src="/about-8.webp"
               alt="वाजेवाडी मंदिर — पूजा सजावट"
               className="h-full w-full object-cover"
               loading="lazy"

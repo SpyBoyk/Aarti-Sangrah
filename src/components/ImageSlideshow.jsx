@@ -3,37 +3,37 @@ import { ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
 
 const SLIDES = [
   {
-    src: '/about-1.jpg',
+    src: '/about-1.webp',
     title: 'वाजेवाडी गावकरी समुदाय',
     subtitle: 'गणेशोत्सव व विविध सणांचे सामूहिक उत्सव क्षण',
     category: 'एकजूट समुदाय',
   },
   {
-    src: '/about-5.jpg',
+    src: '/about-5.webp',
     title: 'श्री राधा-कृष्ण मंदिर',
     subtitle: 'पवित्र पुष्प सजावट व आरती उत्सव',
     category: 'मंदिर',
   },
   {
-    src: '/about-9.jpg',
+    src: '/about-9.webp',
     title: 'गावकरी उत्सव जल्लोष',
     subtitle: 'पारंपरिक सांस्कृतिक कार्यक्रम व एकत्र येण्याचा आनंद',
     category: 'सांस्कृतिक परंपरा',
   },
   {
-    src: '/about-4.jpg',
+    src: '/about-4.webp',
     title: '॥ स्वयंभू श्री सुकाई देवी प्रसन्न ॥',
     subtitle: 'मालघर गावचे स्वयंभू व पवित्र ग्रामदैवत',
     category: 'ग्रामदैवत',
   },
   {
-    src: '/about-3.jpg',
+    src: '/about-3.webp',
     title: '॥ आम्ही वाजेवाडीकर ॥',
     subtitle: 'कोकणातील वाजेवाडी गावाचा अभिमान व संस्कृती',
     category: 'गाव ओळख',
   },
   {
-    src: '/about-8.jpg',
+    src: '/about-8.webp',
     title: 'मंदिर पूजा सजावट',
     subtitle: 'दैनंदिन पूजा, भजन आणि आरत्यांची समृद्ध परंपरा',
     category: 'धार्मिक विधी',

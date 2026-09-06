@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import {
   ArrowRight,
   BookOpen,
-  Clock,
   Eye,
   Flame,
   Heart,
@@ -12,9 +11,7 @@ import {
   Search,
   Sunrise,
   Sunset,
-  Shield,
   Layers,
-  Star,
 } from 'lucide-react';
 import { CATEGORIES, ITEMS } from '../data/aartis';
 import AartiCard from '../components/AartiCard';

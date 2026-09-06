@@ -1,14 +1,28 @@
-import { HashRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Flame, Heart, Home, LayoutGrid, Music2 } from 'lucide-react';
 import { AppProvider, useApp } from './context/AppContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import HomePage from './pages/Home';
-import Browse from './pages/Browse';
-import Categories from './pages/Categories';
-import Reading from './pages/Reading';
-import Favorites from './pages/Favorites';
-import About from './pages/About';
+
+const HomePage = lazy(() => import('./pages/Home'));
+const Browse = lazy(() => import('./pages/Browse'));
+const Categories = lazy(() => import('./pages/Categories'));
+const Reading = lazy(() => import('./pages/Reading'));
+const Favorites = lazy(() => import('./pages/Favorites'));
+const About = lazy(() => import('./pages/About'));
+
+function PageLoader() {
+  return (
+    <div className="flex min-h-[50vh] flex-col items-center justify-center gap-3">
+      <div className="relative flex items-center justify-center">
+        <span className="absolute h-10 w-10 animate-ping rounded-full bg-amber-400/20" />
+        <span className="text-3xl animate-bounce">🪔</span>
+      </div>
+      <p className="text-xs font-semibold text-stone-500 dark:text-stone-400">लोड होत आहे...</p>
+    </div>
+  );
+}
 
 const tabs = [
   { to: '/', label: 'मुख्य', icon: Home },
@@ -68,17 +82,19 @@ function Shell() {
       </a>
       <Header />
       <main id="main" className="mx-auto w-full max-w-7xl px-4 pt-4 pb-24 sm:px-6 sm:py-6 md:px-8 md:pb-12 md:py-8">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/aartis" element={<Browse key="aartis" type="aarti" />} />
-          <Route path="/bhajans" element={<Browse key="bhajans" type="bhajan" />} />
-          <Route path="/search" element={<Browse key="search" searchMode />} />
-          <Route path="/categories" element={<Categories />} />
-          <Route path="/read/:id" element={<Reading />} />
-          <Route path="/favorites" element={<Favorites />} />
-          <Route path="/about" element={<About />} />
-          <Route path="*" element={<Browse key="all" />} />
-        </Routes>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/aartis" element={<Browse key="aartis" type="aarti" />} />
+            <Route path="/bhajans" element={<Browse key="bhajans" type="bhajan" />} />
+            <Route path="/search" element={<Browse key="search" searchMode />} />
+            <Route path="/categories" element={<Categories />} />
+            <Route path="/read/:id" element={<Reading />} />
+            <Route path="/favorites" element={<Favorites />} />
+            <Route path="/about" element={<About />} />
+            <Route path="*" element={<Browse key="all" />} />
+          </Routes>
+        </Suspense>
       </main>
       <Footer />
       <MobileNav />
@@ -88,10 +104,10 @@ function Shell() {
 
 export default function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <AppProvider>
         <Shell />
       </AppProvider>
-    </HashRouter>
+    </BrowserRouter>
   );
 }

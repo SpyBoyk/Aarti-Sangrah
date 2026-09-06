@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Clock, Eye, Heart } from 'lucide-react';
 import { useApp } from '../context/AppContext';
-import { CATEGORIES } from '../data/aartis';
 import { DeityIcon } from './DeityIcon';
 
 const MR_DIGITS = { '०': '0', '१': '1', '२': '2', '३': '3', '४': '4', '५': '5', '६': '6', '७': '7', '८': '8', '९': '9' };
@@ -10,7 +9,6 @@ const toEn = (s = '') => s.replace(/[०-९]/g, (d) => MR_DIGITS[d]);
 export default function AartiCard({ item }) {
   const { isFavorite, toggleFavorite } = useApp();
   const fav = isFavorite(item.id);
-  const cat = CATEGORIES.find((c) => c.id === item.category);
 
   const durationText = item.duration || '५ मिनिटे';
   const viewsEn = toEn(item.views);
