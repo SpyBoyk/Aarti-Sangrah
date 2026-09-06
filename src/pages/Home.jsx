@@ -18,7 +18,7 @@ import {
 import { CATEGORIES, ITEMS } from '../data/aartis';
 import AartiCard from '../components/AartiCard';
 import SectionHeading from '../components/SectionHeading';
-import Pagination from '../components/Pagination';
+import Pagination, { toMr } from '../components/Pagination';
 import { DeityIcon, SacredDiyaIcon } from '../components/DeityIcon';
 
 const FEATURES = [
@@ -46,36 +46,57 @@ const FEATURES = [
 
 const NITYA_PATHS = [
   {
-    timeLabel: 'प्रातःकाल',
+    id: 'morning',
+    shortLabel: 'सकाळ',
+    timeLabel: 'प्रातःकाल (सकाळ)',
+    timeRange: 'पहाटे ४:०० ते दुपारी १२:००',
+    badge: 'सकाळची मंगल पूजा',
     icon: Sunrise,
     title: 'सकाळचा नित्यपाठ',
-    desc: 'दिवसाची मंगलमय सुरुवात करण्यासाठी प्रातःकालीन प्रार्थना व स्तोत्रे.',
+    desc: 'दिवसाची प्रसन्न सुरुवात करण्यासाठी श्री गणपती व मारुती स्तोत्र, गायत्री महामंत्र.',
+    colorClass: 'from-amber-500/10 via-orange-500/5 to-amber-500/10 border-amber-300 dark:border-amber-700/50',
+    accentColor: 'text-amber-700 dark:text-amber-400',
+    bgIcon: 'bg-amber-500/15 text-amber-700 dark:bg-amber-400/20 dark:text-amber-300',
     items: [
-      { id: 'sukhkarta-dukhaharta', title: 'सुखकर्ता दुःखहर्ता', deityId: 'ganesh', tag: 'गणपती' },
-      { id: 'maruti-stotra', title: 'मारुती स्तोत्र (भीमरूपी)', deityId: 'hanuman', tag: 'हनुमान' },
-      { id: 'gayatri-mantra', title: 'गायत्री महामंत्र', deityId: 'gayatri', tag: 'वैदिक' },
+      { id: 'sukhkarta-dukhaharta', title: 'सुखकर्ता दुःखहर्ता', subtitle: 'श्री गणपती आरती', deityId: 'ganesh', tag: 'गणपती' },
+      { id: 'maruti-stotra', title: 'मारुती स्तोत्र (भीमरूपी)', subtitle: 'समर्थ रामदास स्वामी विरचित', deityId: 'hanuman', tag: 'हनुमान' },
+      { id: 'gayatri-mantra', title: 'गायत्री महामंत्र', subtitle: 'सकल विघ्न विनाशक महामंत्र', deityId: 'gayatri', tag: 'वैदिक' },
     ],
   },
   {
-    timeLabel: 'सायंकाळ',
+    id: 'evening',
+    shortLabel: 'सायंकाळ',
+    timeLabel: 'सायंकाळ (संध्या)',
+    timeRange: 'दुपारी १२:०० ते रात्री ८:००',
+    badge: 'संध्या दीप वंदन',
     icon: Sunset,
     title: 'संध्या आरती व दीप वंदन',
-    desc: 'संध्यासमयी घरात पावित्र्य व सकारात्मक ऊर्जा निर्माण करणारा पाठ.',
+    desc: 'संध्यासमयी घरात सुख-शांती, पावित्र्य व सकारात्मक ऊर्जा निर्माण करणारा पारंपरिक पाठ.',
+    colorClass: 'from-orange-500/10 via-amber-500/5 to-orange-500/10 border-orange-300 dark:border-orange-700/50',
+    accentColor: 'text-orange-700 dark:text-orange-400',
+    bgIcon: 'bg-orange-500/15 text-orange-700 dark:bg-orange-400/20 dark:text-orange-300',
     items: [
-      { id: 'durge-durgat-bhari', title: 'दुर्गे दुर्घट भारी', deityId: 'durga', tag: 'दुर्गा देवी' },
-      { id: 'lavthavti-vikrala', title: 'लवथवती विक्राळा', deityId: 'shiva', tag: 'महादेव' },
-      { id: 'dattachi-aarti', title: 'त्रिगुणात्मक त्रिमूर्ती दत्त', deityId: 'datt', tag: 'दत्तगुरू' },
+      { id: 'durge-durgat-bhari', title: 'दुर्गे दुर्घट भारी', subtitle: 'आदिमाया जगदंबा भवानी आरती', deityId: 'durga', tag: 'दुर्गा देवी' },
+      { id: 'lavthavti-vikrala', title: 'लवथवती विक्राळा', subtitle: 'देवाधिदेव महादेव शंकर आरती', deityId: 'shiva', tag: 'महादेव' },
+      { id: 'dattachi-aarti', title: 'त्रिगुणात्मक त्रिमूर्ती दत्त', subtitle: 'श्री गुरुदेव दत्त आरती', deityId: 'datt', tag: 'दत्तगुरू' },
     ],
   },
   {
-    timeLabel: 'रात्र',
+    id: 'night',
+    shortLabel: 'रात्र (शेजारती)',
+    timeLabel: 'शेजारती (रात्र)',
+    timeRange: 'रात्री ८:०० नंतर',
+    badge: 'शेजारती व कृतज्ञता',
     icon: Moon,
     title: 'शेजारती व शांती मंत्र',
-    desc: 'दिवसाचा समारोप शांत मनाने आणि कृतज्ञतेने करण्यासाठी.',
+    desc: 'दिवसाचा समारोप शांत चित्ताने, समाधानाने व भगवंताच्या चरणी कृतज्ञता अर्पण करण्यासाठी.',
+    colorClass: 'from-sky-500/10 via-indigo-500/5 to-sky-500/10 border-sky-300 dark:border-sky-800/50',
+    accentColor: 'text-sky-700 dark:text-sky-300',
+    bgIcon: 'bg-sky-500/15 text-sky-700 dark:bg-sky-400/20 dark:text-sky-300',
     items: [
-      { id: 'ghalin-lotangan', title: 'घालीन लोटांगण वंदन चरणी', deityId: 'vitthal', tag: 'नित्य' },
-      { id: 'yei-o-vitthale', title: 'येई ओ विठ्ठले माझे माऊली', deityId: 'vitthal', tag: 'विठ्ठल' },
-      { id: 'shanti-path', title: 'शांती पाठ व क्षमा प्रार्थना', deityId: 'gayatri', tag: 'मंत्र' },
+      { id: 'ghalin-lotangan', title: 'घालीन लोटांगण वंदन चरणी', subtitle: 'संपूर्ण शरणागती प्रार्थना', deityId: 'vitthal', tag: 'नित्य' },
+      { id: 'yei-o-vitthale', title: 'येई ओ विठ्ठले माझे माऊली', subtitle: 'विठ्ठल रखुमाई आरती', deityId: 'vitthal', tag: 'विठ्ठल' },
+      { id: 'shanti-path', title: 'शांती पाठ व क्षमा प्रार्थना', subtitle: 'विश्व शांती महामंत्र', deityId: 'gayatri', tag: 'मंत्र' },
     ],
   },
 ];
@@ -186,13 +207,25 @@ export default function Home() {
     setTimeout(() => setBellRinging(false), 850);
   };
 
-  const currentPeriod = useMemo(() => {
+  const currentPeriodId = useMemo(() => {
     const h = new Date().getHours();
-    if (h >= 4 && h < 12) return 'प्रातःकाल';
-    if (h >= 12 && h < 18) return 'सायंकाळ';
-    if (h >= 18 && h < 22) return 'सायंकाळ';
-    return 'रात्र';
+    if (h >= 4 && h < 12) return 'morning';
+    if (h >= 12 && h < 20) return 'evening';
+    return 'night';
   }, []);
+
+  const currentPeriod = useMemo(() => {
+    if (currentPeriodId === 'morning') return 'प्रातःकाल';
+    if (currentPeriodId === 'evening') return 'सायंकाळ';
+    return 'रात्र';
+  }, [currentPeriodId]);
+
+  const [selectedTimeSlot, setSelectedTimeSlot] = useState(() => {
+    const h = new Date().getHours();
+    if (h >= 4 && h < 12) return 'morning';
+    if (h >= 12 && h < 20) return 'evening';
+    return 'night';
+  });
 
   const handleHeroSearchSubmit = (e) => {
     e.preventDefault();
@@ -453,40 +486,36 @@ export default function Home() {
               ))}
             </div>
 
-            {/* Daily Worship Quick Banner */}
-            <div className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-amber-200/80 bg-gradient-to-r from-amber-100/50 via-white to-amber-100/40 p-4 shadow-sm dark:border-amber-950/50 dark:from-stone-900 dark:via-stone-900 dark:to-stone-900">
-              <div className="flex items-center gap-3">
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-amber-500/15 text-amber-700 dark:bg-amber-400/15 dark:text-amber-300">
-                  <Sunrise size={20} />
+            {/* Direct Quick Link to Nitya Path Schedule */}
+            <div className="mt-5 flex items-center justify-between gap-2 rounded-2xl border border-amber-200/80 bg-gradient-to-r from-amber-50/90 via-white to-amber-50/90 px-4 py-2.5 shadow-2xs dark:border-amber-900/40 dark:from-stone-900 dark:via-stone-900 dark:to-stone-900">
+              <div className="flex items-center gap-2.5">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
                 </span>
-                <div>
-                  <p className="text-[10px] font-extrabold tracking-wider text-amber-800 uppercase dark:text-amber-400">
-                    सध्याची उपासना ({currentPeriod})
-                  </p>
-                  <h3 className="font-[Yatra_One] text-sm text-stone-900 dark:text-stone-100">
-                    {currentPeriod === 'प्रातःकाल' ? 'सुखकर्ता दुःखहर्ता व मारुती स्तोत्र' : 'दुर्गे दुर्घट भारी व संध्या आरती'}
-                  </h3>
-                </div>
+                <p className="text-xs font-bold text-stone-800 dark:text-stone-200">
+                  सध्याची उपासना: <span className="text-amber-800 dark:text-amber-300 font-extrabold">{currentPeriod} नित्यपाठ</span>
+                </p>
               </div>
 
-              <Link
-                to={currentPeriod === 'प्रातःकाल' ? '/read/sukhkarta-dukhaharta' : '/read/durge-durgat-bhari'}
-                className="inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 px-4 py-2 text-xs font-extrabold text-stone-950 shadow-sm transition hover:from-amber-400 hover:to-amber-500 active:scale-95"
+              <a
+                href="#nitya-path-section"
+                className="inline-flex items-center gap-1 text-xs font-extrabold text-amber-700 hover:text-amber-800 hover:underline dark:text-amber-400"
               >
-                <span>आरती सुरू करा</span>
+                <span>वेळापत्रक पहा</span>
                 <ArrowRight size={13} />
-              </Link>
+              </a>
             </div>
 
             {/* Quick Metrics */}
             <div className="mt-8 flex items-center gap-6 border-t border-amber-200/60 pt-5 dark:border-stone-800">
               <div>
-                <p className="font-[Yatra_One] text-2xl font-bold text-amber-700 dark:text-amber-400">{ITEMS.length}+</p>
+                <p className="font-[Yatra_One] text-2xl font-bold text-amber-700 dark:text-amber-400">{toMr(ITEMS.length)}+</p>
                 <p className="text-xs font-semibold text-stone-500 dark:text-stone-400">पवित्र रचना</p>
               </div>
               <div className="h-8 w-px bg-amber-200 dark:bg-stone-800" />
               <div>
-                <p className="font-[Yatra_One] text-2xl font-bold text-amber-700 dark:text-amber-400">{CATEGORIES.length}</p>
+                <p className="font-[Yatra_One] text-2xl font-bold text-amber-700 dark:text-amber-400">{toMr(CATEGORIES.length)}</p>
                 <p className="text-xs font-semibold text-stone-500 dark:text-stone-400">आराध्य देवता</p>
               </div>
               <div className="h-8 w-px bg-amber-200 dark:bg-stone-800" />
@@ -501,9 +530,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════════════ DEITY CIRCULAR STORIES STRIP (MOBILE HERO TOUCH) ═══════════════ */}
+      {/* ═══════════════ DEITY CIRCULAR STORIES STRIP ═══════════════ */}
       <section aria-label="देवता दर्शन पट्टी" className="relative">
-        <div className="mb-3 flex items-center justify-between px-1">
+        <div className="mb-3.5 flex items-center justify-between px-1">
           <div className="flex items-center gap-2">
             <SacredDiyaIcon size={16} className="text-amber-600 dark:text-amber-400" />
             <h2 className="font-[Yatra_One] text-base sm:text-lg text-stone-900 dark:text-stone-100">
@@ -514,12 +543,12 @@ export default function Home() {
             to="/categories"
             className="text-xs font-bold text-amber-700 hover:underline dark:text-amber-400"
           >
-            सर्व श्रेणी →
+            सर्व श्रेणी पहा →
           </Link>
         </div>
 
         {/* Horizontally scrollable stories */}
-        <div className="no-scrollbar flex items-center gap-3.5 overflow-x-auto pb-2 pt-1 px-1">
+        <div className="no-scrollbar flex items-center gap-4 overflow-x-auto pb-2.5 pt-1 px-1">
           {DEITY_STORIES.map((d) => {
             const count = categoryCounts[d.id] || 0;
             return (
@@ -534,11 +563,11 @@ export default function Home() {
                     <DeityIcon id={d.id} size={28} className="text-amber-700 dark:text-amber-300 transition-transform group-hover:scale-110" />
                   </div>
                 </div>
-                <span className="mt-2 block max-w-[76px] truncate text-xs font-bold text-stone-800 group-hover:text-amber-700 dark:text-stone-200 dark:group-hover:text-amber-300">
+                <span className="mt-2 block max-w-[82px] truncate text-xs font-bold text-stone-800 group-hover:text-amber-700 dark:text-stone-200 dark:group-hover:text-amber-300">
                   {d.name}
                 </span>
-                <span className="text-[10px] text-stone-500 dark:text-stone-400">
-                  {count} आरत्या
+                <span className="text-[11px] font-semibold text-stone-500 dark:text-stone-400">
+                  {toMr(count)} आरत्या
                 </span>
               </Link>
             );
@@ -546,75 +575,137 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════════════ TIME-BASED NITYA PATH ═══════════════ */}
-      <section aria-label="नित्य उपासना व दैनंदिन पाठ">
+      {/* ═══════════════ DAILY NITYA PATH (SCHEDULE) ═══════════════ */}
+      <section id="nitya-path-section" aria-label="दैनंदिन नित्यपाठ वेळापत्रक" className="scroll-mt-20">
         <SectionHeading
-          kicker="दैनंदिन नित्यपाठ"
-          title="वेळेनुसार नित्य उपासना"
-          subtitle="सकाळ, संध्याकाळ आणि रात्रीच्या वेळेनुसार आवश्यक असलेल्या नित्य आरत्या व स्तोत्रे."
+          kicker="वेळापत्रक व नित्य उपासना"
+          title="दैनंदिन नित्यपाठ"
+          subtitle="दिवसाच्या प्रहरानुसार घरातील सुख, शांती व पावित्र्यासाठी आवश्यक आरत्या व स्तोत्रे."
         />
 
-        <div className="grid gap-5 md:grid-cols-3">
-          {NITYA_PATHS.map((n, idx) => {
-            const Icon = n.icon;
-            const isCurrent = n.timeLabel === currentPeriod;
+        {/* Time Segmented Control Tabs */}
+        <div className="mb-6 grid grid-cols-3 gap-1.5 rounded-2xl border border-amber-200/80 bg-white/90 p-1.5 shadow-xs dark:border-stone-800 dark:bg-stone-900/90">
+          {NITYA_PATHS.map((slot) => {
+            const Icon = slot.icon;
+            const isSelected = selectedTimeSlot === slot.id;
+            const isCurrent = currentPeriodId === slot.id;
             return (
-              <div
-                key={n.title}
-                className={`fade-up fade-up-${idx} group relative flex flex-col rounded-2xl border p-5 sm:p-6 transition-all duration-300 hover:shadow-xl ${
-                  isCurrent
-                    ? 'border-amber-400/90 bg-gradient-to-b from-amber-50/70 via-white to-white ring-2 ring-amber-400/40 shadow-lg shadow-amber-500/10 dark:border-amber-500/70 dark:from-amber-950/30 dark:via-stone-900 dark:to-stone-900'
-                    : 'border-amber-200/60 bg-white hover:border-amber-400 dark:border-stone-800 dark:bg-stone-900'
+              <button
+                key={slot.id}
+                type="button"
+                onClick={() => setSelectedTimeSlot(slot.id)}
+                className={`relative flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 rounded-xl py-2.5 px-2 text-center transition-all duration-200 active:scale-95 ${
+                  isSelected
+                    ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-stone-950 font-extrabold shadow-md shadow-amber-500/30'
+                    : 'text-stone-600 hover:bg-stone-100 hover:text-stone-900 dark:text-stone-300 dark:hover:bg-stone-800 font-bold'
                 }`}
               >
+                <Icon size={17} className="shrink-0" />
+                <span className="text-xs sm:text-sm tracking-tight hidden sm:inline">{slot.timeLabel}</span>
+                <span className="text-xs tracking-tight sm:hidden">{slot.shortLabel}</span>
                 {isCurrent && (
-                  <span className="absolute -top-3 right-4 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 px-3 py-0.5 text-[10px] font-extrabold text-stone-950 shadow-md">
-                    ✨ सध्याची शुभ वेळ
+                  <span className={`inline-block rounded-full px-1.5 py-0.2 text-[9px] font-black uppercase ${
+                    isSelected ? 'bg-stone-950/25 text-stone-950' : 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-400'
+                  }`}>
+                    आता
                   </span>
                 )}
-                <div className="flex items-center gap-3">
-                  <span className={`grid h-11 w-11 place-items-center rounded-xl transition ${
-                    isCurrent
-                      ? 'bg-gradient-to-tr from-amber-500 to-amber-600 text-stone-950 font-bold shadow-md shadow-amber-500/30'
-                      : 'bg-amber-500/10 text-amber-700 dark:bg-amber-400/15 dark:text-amber-300'
-                  }`}>
-                    <Icon size={20} />
-                  </span>
-                  <div>
-                    <p className="text-[10px] font-extrabold tracking-widest text-amber-700 uppercase dark:text-amber-400">
-                      {n.timeLabel}
-                    </p>
-                    <h3 className="font-[Yatra_One] text-base sm:text-lg text-stone-900 dark:text-stone-100">
-                      {n.title}
-                    </h3>
-                  </div>
-                </div>
-
-                <p className="mt-3 text-xs leading-relaxed text-stone-600 dark:text-stone-400">
-                  {n.desc}
-                </p>
-
-                <div className="mt-4 flex-1 space-y-2">
-                  {n.items.map((item) => (
-                    <Link
-                      key={item.id}
-                      to={`/read/${item.id}`}
-                      className="group/item flex items-center justify-between rounded-xl border border-stone-100 bg-stone-50/70 px-3.5 py-2.5 transition hover:border-amber-300 hover:bg-amber-50/60 active:scale-[0.99] dark:border-stone-800 dark:bg-stone-800/40 dark:hover:border-amber-600/50"
-                    >
-                      <span className="flex items-center gap-2.5 text-xs sm:text-[13px] font-semibold text-stone-800 group-hover/item:text-amber-800 dark:text-stone-200 dark:group-hover/item:text-amber-300">
-                        <DeityIcon id={item.deityId} size={14} className="shrink-0 text-amber-600 dark:text-amber-400" />
-                        <span className="truncate">{item.title}</span>
-                      </span>
-                      <span className="shrink-0 rounded-md bg-white px-2 py-0.5 text-[10px] font-bold text-amber-800 border border-amber-200/80 dark:border-stone-700 dark:bg-stone-800 dark:text-amber-300">
-                        {item.tag}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
+              </button>
             );
           })}
         </div>
+
+        {/* Selected Time Slot Showcase Card */}
+        {(() => {
+          const activeSlot = NITYA_PATHS.find((s) => s.id === selectedTimeSlot) || NITYA_PATHS[0];
+          const Icon = activeSlot.icon;
+          const isCurrent = currentPeriodId === activeSlot.id;
+
+          return (
+            <div className={`overflow-hidden rounded-3xl border-2 transition-all duration-300 shadow-xl ${
+              isCurrent
+                ? 'border-amber-400/90 bg-gradient-to-b from-amber-50/60 via-white to-orange-50/20 dark:border-amber-500/60 dark:from-stone-900/90 dark:via-stone-900 dark:to-stone-950 shadow-amber-500/15'
+                : 'border-amber-200/80 bg-white dark:border-stone-800 dark:bg-stone-900'
+            }`}>
+              {/* Header Banner */}
+              <div className="border-b border-amber-200/60 bg-gradient-to-r from-amber-100/60 via-white to-amber-100/40 p-5 sm:p-6 dark:border-stone-800 dark:from-stone-900 dark:via-stone-900 dark:to-stone-900">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div className="flex items-center gap-3.5">
+                    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-tr from-amber-500 to-amber-600 text-stone-950 font-bold shadow-md shadow-amber-500/30">
+                      <Icon size={22} />
+                    </span>
+                    <div>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <h3 className="font-[Yatra_One] text-lg sm:text-2xl text-stone-950 dark:text-stone-50">
+                          {activeSlot.title}
+                        </h3>
+                        {isCurrent && (
+                          <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 px-2.5 py-0.5 text-[10px] font-black text-stone-950 shadow-xs">
+                            ✨ सध्याची शुभ वेळ
+                          </span>
+                        )}
+                      </div>
+                      <p className="mt-0.5 text-xs font-bold text-amber-700 dark:text-amber-400">
+                        {activeSlot.timeRange} · {activeSlot.badge}
+                      </p>
+                    </div>
+                  </div>
+
+                  <Link
+                    to={`/read/${activeSlot.items[0].id}`}
+                    className="inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 px-4 py-2 text-xs font-extrabold text-stone-950 shadow-sm transition hover:from-amber-400 hover:to-amber-500 active:scale-95"
+                  >
+                    <span>पाठ सुरू करा</span>
+                    <ArrowRight size={14} />
+                  </Link>
+                </div>
+                <p className="mt-3 text-xs sm:text-sm leading-relaxed text-stone-600 dark:text-stone-300">
+                  {activeSlot.desc}
+                </p>
+              </div>
+
+              {/* Prayer Items Grid */}
+              <div className="grid gap-3 p-4 sm:p-6 sm:grid-cols-3">
+                {activeSlot.items.map((item, idx) => (
+                  <Link
+                    key={item.id}
+                    to={`/read/${item.id}`}
+                    className="group relative flex flex-col justify-between rounded-2xl border border-amber-200/70 bg-white p-4 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-500/10 active:scale-[0.98] dark:border-stone-800 dark:bg-stone-800/60 dark:hover:border-amber-500/40"
+                  >
+                    <div>
+                      <div className="flex items-start justify-between gap-2">
+                        <span className="grid h-8 w-8 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-amber-100 to-amber-50 text-xs font-black text-amber-800 ring-1 ring-amber-300/40 dark:from-amber-950/50 dark:to-stone-800 dark:text-amber-300">
+                          {['१', '२', '३'][idx]}
+                        </span>
+                        <span className="rounded-md border border-stone-200 bg-stone-50 px-2 py-0.5 text-[10px] font-bold text-stone-600 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-300">
+                          {item.tag}
+                        </span>
+                      </div>
+
+                      <div className="mt-3 flex items-center gap-2">
+                        <DeityIcon id={item.deityId} size={18} className="text-amber-600 dark:text-amber-400 shrink-0" />
+                        <h4 className="font-[Yatra_One] text-base text-stone-900 transition-colors group-hover:text-amber-700 dark:text-stone-100 dark:group-hover:text-amber-300">
+                          {item.title}
+                        </h4>
+                      </div>
+
+                      <p className="mt-1 text-xs text-stone-500 dark:text-stone-400">
+                        {item.subtitle}
+                      </p>
+                    </div>
+
+                    <div className="mt-4 flex items-center justify-between border-t border-stone-100 pt-3 dark:border-stone-800">
+                      <span className="text-xs font-bold text-amber-700 group-hover:underline dark:text-amber-400">
+                        आरती वाचा
+                      </span>
+                      <ArrowRight size={14} className="text-amber-600 transition-transform group-hover:translate-x-1 dark:text-amber-400" />
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          );
+        })()}
       </section>
 
       {/* ═══════════════ CURATED FEATURED AARTIS ═══════════════ */}
