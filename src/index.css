@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-devanagari: "Tiro Devanagari Hindi", "Mukta", serif;
+  --font-heading: "Yatra One", "Tiro Devanagari Hindi", system-ui, serif;
+  --font-body: "Mukta", "Inter", system-ui, sans-serif;
+
+  --color-brand-50: #eef4fa;
+  --color-brand-100: #d9e6f4;
+  --color-brand-200: #b5cde8;
+  --color-brand-500: #2b6cb0;
+  --color-brand-600: #1f5799;
+  --color-brand-700: #174478;
+  --color-brand-800: #113259;
+  --color-brand-900: #0a1f38;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Clean minimal background */
+.pattern-bg {
+  background-color: transparent;
+}
+.dark .pattern-bg {
+  background-color: transparent;
+}
+
+/* Diya flame flicker */
+@keyframes flicker {
+  0%, 100% { transform: scale(1) rotate(-1deg); opacity: 1; }
+  25% { transform: scale(1.04, 0.96) rotate(1deg); opacity: 0.94; }
+  50% { transform: scale(0.97, 1.03) rotate(0deg); opacity: 1; }
+  75% { transform: scale(1.02, 0.98) rotate(-0.5deg); opacity: 0.96; }
+}
+.flame {
+  transform-origin: 50% 90%;
+  animation: flicker 2s ease-in-out infinite;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.animate-float-slow {
+  animation: float-slow 4s ease-in-out infinite;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  animation: fade-up 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.fade-up-1 { animation-delay: 0.06s; }
+.fade-up-2 { animation-delay: 0.12s; }
+.fade-up-3 { animation-delay: 0.18s; }
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.85; }
+}
+.glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Devanagari reading */
+.reading-text {
+  font-family: var(--font-devanagari);
+  line-height: 2.1;
+  text-wrap: pretty;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #e2cca6; border-radius: 9999px; }
+.dark ::-webkit-scrollbar-thumb { background: #523e2b; }
+
+/* Deity marquee strip */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Focus visible for a11y */
+:focus-visible {
+  outline: 2px solid #174478;
+  outline-offset: 2px;
+}
+
