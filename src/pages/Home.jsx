@@ -327,21 +327,36 @@ export default function Home() {
                     fetchPriority="high"
                   />
 
-                  {/* Agarbatti Continuous Incense Smoke Effect Container */}
+                  {/* Hyper-Realistic Agarbatti Incense Smoke Overlay */}
                   {agarbattiLit && (
-                    <div className="pointer-events-none absolute inset-0 z-20 overflow-hidden" aria-hidden="true">
-                      {/* Glowing Incense Ember Stick Tips */}
-                      <div className="absolute bottom-1 left-1/4 -translate-x-1/2 flex flex-col items-center">
-                        <div className="h-2 w-2 rounded-full bg-orange-400 shadow-[0_0_12px_#f97316] animate-pulse" />
-                      </div>
-                      <div className="absolute bottom-1 right-1/4 translate-x-1/2 flex flex-col items-center">
-                        <div className="h-2 w-2 rounded-full bg-orange-400 shadow-[0_0_12px_#f97316] animate-pulse" />
+                    <div className="pointer-events-none absolute inset-0 z-30 overflow-hidden" aria-hidden="true">
+                      {/* Left Agarbatti Stick & Ember Glow */}
+                      <div className="absolute bottom-1 left-[20%] flex flex-col items-center">
+                        <div className="relative flex items-center justify-center">
+                          <span className="h-2 w-2 rounded-full bg-amber-300 shadow-[0_0_15px_#f97316,#000_0_0_2px] animate-pulse" />
+                          <span className="absolute h-3.5 w-3.5 rounded-full bg-orange-500/60 blur-xs animate-ping" />
+                        </div>
+                        <div className="h-10 w-0.5 bg-gradient-to-t from-stone-800 via-amber-900 to-amber-700 opacity-90 shadow-sm" />
                       </div>
 
-                      {/* Continuous Fragrant Smoke Streams Drifting Upward Across Image */}
-                      <div className="absolute bottom-4 left-1/4 -translate-x-1/2 w-16 h-48 animate-incense-smoke-1 bg-gradient-to-t from-slate-200/50 via-stone-200/30 to-transparent rounded-full" />
-                      <div className="absolute bottom-4 right-1/4 translate-x-1/2 w-20 h-52 animate-incense-smoke-2 bg-gradient-to-t from-amber-100/40 via-stone-200/25 to-transparent rounded-full" />
-                      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-24 h-56 animate-incense-smoke-3 bg-gradient-to-t from-slate-100/40 via-slate-200/20 to-transparent rounded-full" />
+                      {/* Right Agarbatti Stick & Ember Glow */}
+                      <div className="absolute bottom-1 right-[20%] flex flex-col items-center">
+                        <div className="relative flex items-center justify-center">
+                          <span className="h-2 w-2 rounded-full bg-amber-300 shadow-[0_0_15px_#f97316,#000_0_0_2px] animate-pulse" />
+                          <span className="absolute h-3.5 w-3.5 rounded-full bg-orange-500/60 blur-xs animate-ping" />
+                        </div>
+                        <div className="h-10 w-0.5 bg-gradient-to-t from-stone-800 via-amber-900 to-amber-700 opacity-90 shadow-sm" />
+                      </div>
+
+                      {/* Concentrated Stem Smoke Wisps */}
+                      <div className="absolute bottom-3 left-[20%] -translate-x-1/2 w-2 h-16 bg-gradient-to-t from-slate-200/80 via-stone-300/50 to-transparent blur-[1px]" />
+                      <div className="absolute bottom-3 right-[20%] translate-x-1/2 w-2 h-16 bg-gradient-to-t from-slate-200/80 via-stone-300/50 to-transparent blur-[1px]" />
+
+                      {/* Swirling Layered Real Smoke Plumes Floating Across Image */}
+                      <div className="absolute bottom-10 left-[18%] -translate-x-1/2 w-24 h-64 animate-real-smoke-1 bg-gradient-to-t from-slate-200/70 via-stone-300/40 to-transparent rounded-full" />
+                      <div className="absolute bottom-10 right-[18%] translate-x-1/2 w-28 h-64 animate-real-smoke-2 bg-gradient-to-t from-stone-100/65 via-slate-200/35 to-transparent rounded-full" />
+                      <div className="absolute bottom-8 left-[40%] -translate-x-1/2 w-32 h-72 animate-real-smoke-3 bg-gradient-to-t from-slate-100/60 via-amber-50/30 to-transparent rounded-full" />
+                      <div className="absolute bottom-8 right-[38%] translate-x-1/2 w-36 h-72 animate-real-smoke-4 bg-gradient-to-t from-stone-200/55 via-slate-100/25 to-transparent rounded-full" />
                     </div>
                   )}
 
