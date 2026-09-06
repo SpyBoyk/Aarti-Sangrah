@@ -237,3 +237,39 @@ body {
   outline: 2px solid #d97706;
   outline-offset: 2px;
 }
+
+/* Agarbatti Incense Smoke Animation */
+@keyframes incense-smoke {
+  0% {
+    transform: translateY(0) scaleX(0.8) scaleY(0.9) rotate(0deg);
+    opacity: 0.2;
+    filter: blur(4px);
+  }
+  30% {
+    transform: translateY(-70px) scaleX(1.7) scaleY(1.4) rotate(5deg);
+    opacity: 0.55;
+    filter: blur(8px);
+  }
+  60% {
+    transform: translateY(-160px) scaleX(2.6) scaleY(1.9) rotate(-6deg);
+    opacity: 0.35;
+    filter: blur(14px);
+  }
+  100% {
+    transform: translateY(-260px) scaleX(3.8) scaleY(2.5) rotate(8deg);
+    opacity: 0;
+    filter: blur(20px);
+  }
+}
+
+.animate-incense-smoke-1 {
+  animation: incense-smoke 4.2s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+}
+
+.animate-incense-smoke-2 {
+  animation: incense-smoke 5.5s cubic-bezier(0.25, 1, 0.5, 1) 1.3s infinite;
+}
+
+.animate-incense-smoke-3 {
+  animation: incense-smoke 6.8s cubic-bezier(0.25, 1, 0.5, 1) 2.6s infinite;
+}

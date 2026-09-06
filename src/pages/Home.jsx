@@ -166,7 +166,7 @@ export default function Home() {
   const navigate = useNavigate();
   const [heroSearch, setHeroSearch] = useState('');
   const [activeFilter, setActiveFilter] = useState('all');
-  const [diyaLit, setDiyaLit] = useState(false);
+  const [agarbattiLit, setAgarbattiLit] = useState(false);
   const [diyaCount, setDiyaCount] = useState(() => {
     const saved = localStorage.getItem('wajewadi_diya_count');
     return saved ? parseInt(saved, 10) : 1248;
@@ -174,9 +174,9 @@ export default function Home() {
   const [petals, setPetals] = useState([]);
   const [bellRinging, setBellRinging] = useState(false);
 
-  const handleLightDiya = () => {
+  const handleLightAgarbatti = () => {
     playTempleBell(1.0);
-    setDiyaLit(true);
+    setAgarbattiLit((prev) => !prev);
     setDiyaCount((prev) => {
       const next = prev + 1;
       localStorage.setItem('wajewadi_diya_count', next.toString());
@@ -317,7 +317,7 @@ export default function Home() {
                   </span>
                 </div>
 
-                {/* 2. COMPACT CRISP DEITY PHOTO CONTAINER */}
+                {/* 2. COMPACT CRISP DEITY PHOTO CONTAINER WITH AGARBATTI SMOKE OVERLAY */}
                 <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-stone-100 dark:bg-stone-950">
                   <img
                     src="/landing-hero.jpeg"
@@ -326,6 +326,24 @@ export default function Home() {
                     loading="eager"
                     fetchPriority="high"
                   />
+
+                  {/* Agarbatti Continuous Incense Smoke Effect Container */}
+                  {agarbattiLit && (
+                    <div className="pointer-events-none absolute inset-0 z-20 overflow-hidden" aria-hidden="true">
+                      {/* Glowing Incense Ember Stick Tips */}
+                      <div className="absolute bottom-1 left-1/4 -translate-x-1/2 flex flex-col items-center">
+                        <div className="h-2 w-2 rounded-full bg-orange-400 shadow-[0_0_12px_#f97316] animate-pulse" />
+                      </div>
+                      <div className="absolute bottom-1 right-1/4 translate-x-1/2 flex flex-col items-center">
+                        <div className="h-2 w-2 rounded-full bg-orange-400 shadow-[0_0_12px_#f97316] animate-pulse" />
+                      </div>
+
+                      {/* Continuous Fragrant Smoke Streams Drifting Upward Across Image */}
+                      <div className="absolute bottom-4 left-1/4 -translate-x-1/2 w-16 h-48 animate-incense-smoke-1 bg-gradient-to-t from-slate-200/50 via-stone-200/30 to-transparent rounded-full" />
+                      <div className="absolute bottom-4 right-1/4 translate-x-1/2 w-20 h-52 animate-incense-smoke-2 bg-gradient-to-t from-amber-100/40 via-stone-200/25 to-transparent rounded-full" />
+                      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-24 h-56 animate-incense-smoke-3 bg-gradient-to-t from-slate-100/40 via-slate-200/20 to-transparent rounded-full" />
+                    </div>
+                  )}
 
                   {/* Falling Marigold Petals */}
                   <div className="pointer-events-none absolute inset-0 z-20 overflow-hidden" aria-hidden="true">
@@ -359,16 +377,16 @@ export default function Home() {
                   <div className="mt-2.5 grid grid-cols-3 gap-1.5 rounded-xl border border-stone-200 bg-stone-50/80 p-1 dark:border-stone-800 dark:bg-stone-800/50">
                     <button
                       type="button"
-                      onClick={handleLightDiya}
+                      onClick={handleLightAgarbatti}
                       className={`flex flex-col items-center justify-center gap-0.5 rounded-lg py-1.5 px-0.5 text-[10px] font-bold transition-all duration-200 active:scale-95 ${
-                        diyaLit
+                        agarbattiLit
                           ? 'bg-[#174478] text-white shadow-xs'
                           : 'bg-white text-stone-800 border border-stone-200/80 hover:bg-stone-100 dark:bg-stone-900 dark:border-stone-700 dark:text-stone-200'
                       }`}
-                      aria-label="पवित्र दीप प्रज्वलन करा"
+                      aria-label="अगरबत्ती प्रज्वलित करा"
                     >
-                      <span className={`text-sm transition-transform ${diyaLit ? 'scale-110 flame' : ''}`}>🪔</span>
-                      <span className="truncate">{diyaLit ? 'प्रज्वलित' : 'दीप लावा'}</span>
+                      <span className={`text-sm transition-transform ${agarbattiLit ? 'scale-110 animate-pulse' : ''}`}>🪵</span>
+                      <span className="truncate">{agarbattiLit ? 'अगरबत्ती पेटली' : 'अगरबत्ती लावा'}</span>
                     </button>
 
                     <button
