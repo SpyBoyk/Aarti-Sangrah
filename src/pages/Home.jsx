@@ -431,22 +431,28 @@ export default function Home() {
           <div className="lg:order-1 lg:col-span-7 flex flex-col justify-center">
             
             {/* Top Village Kicker */}
-            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-amber-300/80 bg-amber-100/60 px-3.5 py-1 text-xs font-bold text-amber-900 dark:border-amber-700/60 dark:bg-amber-950/50 dark:text-amber-300">
+            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-amber-300/80 bg-amber-100/70 px-4 py-1.5 text-xs font-black text-amber-950 shadow-xs dark:border-amber-700/60 dark:bg-amber-950/60 dark:text-amber-300">
               <SacredDiyaIcon size={14} className="text-amber-600 dark:text-amber-400" />
               <span>॥ मालघर गाव · वाजेवाडी आरती संग्रह ॥</span>
             </div>
 
-            {/* Title & Subheading Card Block with White BG & Crisp Borders */}
-            <div className="mt-4 rounded-2xl border-2 border-stone-200/90 bg-white p-4.5 sm:p-6 shadow-md dark:border-stone-800 dark:bg-stone-900">
-              <h1 className="font-[Yatra_One] text-3xl leading-[1.15] tracking-tight text-stone-950 sm:text-4xl md:text-5xl dark:text-stone-50">
+            {/* Title & Subheading Card Block with White BG, Dual Border Accent & Rich Styling */}
+            <div className="relative overflow-hidden mt-4 rounded-3xl border-2 border-stone-200/90 bg-white p-5 sm:p-7 shadow-lg shadow-amber-500/5 dark:border-stone-800 dark:bg-stone-900">
+              {/* Corner Temple Gold Accent Overlay */}
+              <div className="absolute top-0 right-0 w-28 h-28 bg-gradient-to-bl from-amber-400/20 via-amber-300/5 to-transparent rounded-bl-full pointer-events-none" />
+
+              <h1 className="font-[Yatra_One] text-3xl leading-[1.18] tracking-tight text-[#174478] sm:text-4xl md:text-5xl dark:text-sky-300 drop-shadow-2xs">
                 पवित्र आरत्या व भजने
               </h1>
               
-              <p className="mt-1.5 font-[Yatra_One] text-xl sm:text-2xl md:text-3xl text-[#174478] dark:text-sky-300 font-bold">
-                मनाची शांती · भक्तीचा प्रकाश
-              </p>
+              <div className="mt-2.5 inline-flex items-center gap-2.5 rounded-xl bg-amber-500/10 border border-amber-400/30 px-3.5 py-1 text-stone-900 dark:text-amber-300">
+                <SacredDiyaIcon size={16} className="text-amber-600 dark:text-amber-400 animate-pulse" />
+                <p className="font-[Yatra_One] text-lg sm:text-2xl text-[#174478] dark:text-amber-300 font-extrabold">
+                  मनाची शांती · भक्तीचा प्रकाश
+                </p>
+              </div>
 
-              <p className="mt-3 text-sm leading-relaxed text-stone-600 sm:text-base dark:text-stone-300">
+              <p className="mt-3.5 text-sm leading-relaxed text-stone-700 sm:text-base dark:text-stone-300 font-medium">
                 गणेश, शिव, हनुमान, विठ्ठल, दुर्गा देवी व सर्व देवतांच्या पारंपरिक आरत्या, स्तोत्रे व भजने — स्पष्ट व मोठ्या देवनागरी अक्षरात, दैनंदिन पूजेसाठी.
               </p>
             </div>
@@ -533,19 +539,22 @@ export default function Home() {
       </section>
 
       {/* ═══════════════ DEITY CIRCULAR STORIES STRIP (WHITE BG, BORDERS & MOVING ANIMATION) ═══════════════ */}
-      <section aria-label="देवता दर्शन पट्टी" className="relative rounded-3xl border-2 border-stone-200/90 bg-white p-4.5 shadow-md dark:border-stone-800 dark:bg-stone-900">
-        <div className="mb-3.5 flex items-center justify-between px-1">
-          <div className="flex items-center gap-2">
-            <SacredDiyaIcon size={16} className="text-[#174478] dark:text-sky-400" />
-            <h2 className="font-[Yatra_One] text-base sm:text-lg text-stone-950 dark:text-stone-100">
+      <section aria-label="देवता दर्शन पट्टी" className="relative rounded-3xl border-2 border-stone-200/90 bg-white p-5 shadow-lg dark:border-stone-800 dark:bg-stone-900">
+        <div className="mb-4 flex items-center justify-between px-1">
+          <div className="flex items-center gap-2.5">
+            <div className="grid h-8 w-8 place-items-center rounded-full bg-[#174478]/10 text-[#174478] dark:bg-sky-400/20 dark:text-sky-300">
+              <SacredDiyaIcon size={18} />
+            </div>
+            <h2 className="font-[Yatra_One] text-lg sm:text-xl text-stone-950 dark:text-stone-100">
               आराध्य देवता दर्शन
             </h2>
           </div>
           <Link
             to="/categories"
-            className="text-xs font-extrabold text-[#174478] hover:underline dark:text-sky-300"
+            className="inline-flex items-center gap-1 rounded-full bg-[#174478]/10 px-3.5 py-1 text-xs font-extrabold text-[#174478] transition hover:bg-[#174478] hover:text-white dark:bg-sky-400/15 dark:text-sky-300 dark:hover:bg-sky-400 dark:hover:text-stone-950"
           >
-            सर्व श्रेणी पहा →
+            <span>सर्व श्रेणी पहा</span>
+            <ArrowRight size={13} />
           </Link>
         </div>
 
