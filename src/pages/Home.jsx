@@ -289,29 +289,29 @@ export default function Home() {
   return (
     <div className="space-y-12 sm:space-y-16 md:space-y-20">
 
-      {/* ═══════════════ MAJESTIC HERO SECTION (WHITE BG) ═══════════════ */}
-      <section className="relative overflow-hidden rounded-[2.5rem] border border-stone-200/90 bg-white p-4 shadow-xl sm:p-6 md:p-8 lg:p-10 dark:border-stone-800 dark:bg-stone-900">
+      {/* ═══════════════ PROFESSIONAL ELEGANT HERO SECTION ═══════════════ */}
+      <section className="relative overflow-hidden rounded-3xl border border-stone-200 bg-white p-5 shadow-sm sm:p-8 md:p-10 lg:p-12 dark:border-stone-800 dark:bg-stone-900">
         
-        {/* Subtle background glow */}
+        {/* Subtle Background Radial Glow */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-          <div className="royal-glow absolute top-0 left-1/2 -translate-x-1/2 h-[450px] w-full" />
+          <div className="royal-glow absolute top-0 left-1/2 -translate-x-1/2 h-[450px] w-full opacity-50" />
         </div>
 
-        <div className="relative grid items-center gap-8 lg:grid-cols-12 lg:gap-10">
+        <div className="relative grid items-center gap-8 lg:grid-cols-12 lg:gap-12">
 
-          {/* ───────── HERO SANCTUM (IMAGE VISIBLE IN BOTH MOBILE & DESKTOP!) ───────── */}
+          {/* ───────── RIGHT COLUMN: DEITY SANCTUM PHOTO ───────── */}
           <div className="lg:order-2 lg:col-span-5 w-full">
             <div className="mx-auto max-w-[380px] sm:max-w-md w-full">
               
-              {/* Grand Arched Temple Sanctum Frame with White Background & Crisp Border */}
+              {/* Grand Arched Temple Sanctum Frame */}
               <div 
-                className="temple-arch sanctum-frame border-2 border-stone-200/90 bg-white p-2.5 shadow-xl dark:border-stone-800 dark:bg-stone-900"
+                className="temple-arch sanctum-frame border-2 border-stone-200 bg-white p-2 shadow-xl dark:border-stone-800 dark:bg-stone-900"
                 style={{ minHeight: '440px', height: '460px', width: '100%', position: 'relative', overflow: 'hidden' }}
               >
                 
-                {/* Inner Image Container with Arch and White Background */}
+                {/* Inner Image Container with Arch */}
                 <div className="relative h-full w-full overflow-hidden temple-arch bg-white dark:bg-stone-900">
-                  {/* Deity Photo (User's Image) */}
+                  {/* Deity Photo */}
                   <img
                     src="/landing-hero.jpeg"
                     alt="॥ स्वयंभू श्री सुकाई देवी प्रसन्न — वाजेवाडी मंदिर ॥"
@@ -321,10 +321,10 @@ export default function Home() {
                     fetchPriority="high"
                   />
 
-                  {/* Elegant Gradient Overlay for contrast */}
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-stone-950/80 via-stone-950/20 to-transparent" />
+                  {/* Devotional Contrast Gradient */}
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-950/20 to-transparent" />
 
-                  {/* Falling Marigold Petal Shower Container */}
+                  {/* Falling Marigold Petals */}
                   <div className="pointer-events-none absolute inset-0 z-20 overflow-hidden" aria-hidden="true">
                     {petals.map((p) => (
                       <div
@@ -342,23 +342,21 @@ export default function Home() {
                     ))}
                   </div>
 
-                  {/* Top Floating Badges in Clean Light Glass Style */}
+                  {/* Top Floating Badges */}
                   <div className="absolute top-3.5 inset-x-3.5 flex items-center justify-between gap-2 z-10">
-                    <div className="flex items-center gap-1.5 rounded-full border border-stone-200 bg-white/95 px-3 py-1 text-[11px] font-extrabold text-[#174478] backdrop-blur-md shadow-md dark:border-stone-700 dark:bg-stone-900/90 dark:text-sky-300">
+                    <div className="flex items-center gap-1.5 rounded-full border border-stone-200/80 bg-white/95 px-3 py-1 text-[11px] font-extrabold text-[#174478] shadow-md dark:border-stone-700 dark:bg-stone-900/90 dark:text-sky-300">
                       <SacredDiyaIcon size={13} className="text-amber-500 animate-pulse" />
                       <span>नित्य दर्शन</span>
                     </div>
-                    <div className="flex items-center gap-1 rounded-full border border-stone-200 bg-white/95 px-3 py-1 text-[11px] font-extrabold text-[#174478] backdrop-blur-md shadow-md dark:border-stone-700 dark:bg-stone-900/90 dark:text-sky-300">
+                    <div className="flex items-center gap-1 rounded-full border border-stone-200/80 bg-white/95 px-3 py-1 text-[11px] font-extrabold text-[#174478] shadow-md dark:border-stone-700 dark:bg-stone-900/90 dark:text-sky-300">
                       <span>✨ {diyaCount}+ दर्शन</span>
                     </div>
                   </div>
 
-                  {/* Bottom Shrine Content & Controls with Clean Card Styling */}
+                  {/* Bottom Shrine Title & Interactive Buttons */}
                   <div className="absolute inset-x-0 bottom-0 p-3.5 sm:p-4 z-10 text-white">
-                    
-                    {/* Temple Murti Title */}
                     <div className="mb-2.5 text-center">
-                      <p className="text-[11px] font-extrabold tracking-widest text-amber-300 uppercase drop-shadow-sm">
+                      <p className="text-[11px] font-extrabold tracking-widest text-amber-300 uppercase drop-shadow-xs">
                         ॥ स्वयंभू श्री सुकाई देवी प्रसन्न ॥
                       </p>
                       <h2 className="font-[Yatra_One] text-lg sm:text-xl text-white drop-shadow-md">
@@ -366,17 +364,14 @@ export default function Home() {
                       </h2>
                     </div>
 
-                    {/* Interactive Ritual Action Buttons with White Glass Card styling */}
-                    <div className="grid grid-cols-3 gap-2 rounded-2xl border border-stone-200/80 bg-white/95 p-2 backdrop-blur-md shadow-lg text-stone-900 dark:bg-stone-900/90 dark:border-stone-700 dark:text-stone-100">
-                      
-                      {/* 🪔 Diya Button */}
+                    <div className="grid grid-cols-3 gap-2 rounded-2xl border border-stone-200/80 bg-white/95 p-2 shadow-lg text-stone-900 dark:bg-stone-900/90 dark:border-stone-700 dark:text-stone-100">
                       <button
                         type="button"
                         onClick={handleLightDiya}
-                        className={`flex flex-col items-center justify-center gap-1 rounded-xl py-2 px-1 text-[11px] font-bold transition-all duration-300 active:scale-90 ${
+                        className={`flex flex-col items-center justify-center gap-1 rounded-xl py-2 px-1 text-[11px] font-bold transition-all duration-200 active:scale-95 ${
                           diyaLit
                             ? 'bg-[#174478] text-white shadow-md'
-                            : 'bg-stone-100/90 text-stone-900 hover:bg-stone-200/90 dark:bg-stone-800 dark:text-stone-100'
+                            : 'bg-stone-100 text-stone-900 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-100'
                         }`}
                         aria-label="पवित्र दीप प्रज्वलन करा"
                       >
@@ -384,22 +379,20 @@ export default function Home() {
                         <span className="truncate">{diyaLit ? 'दीप प्रज्वलित' : 'दीप लावा'}</span>
                       </button>
 
-                      {/* 🌸 Flower Shower Button */}
                       <button
                         type="button"
                         onClick={handleFlowerShower}
-                        className="flex flex-col items-center justify-center gap-1 rounded-xl bg-stone-100/90 text-stone-900 py-2 px-1 text-[11px] font-bold transition-all duration-300 hover:bg-stone-200/90 active:scale-90 dark:bg-stone-800 dark:text-stone-100"
+                        className="flex flex-col items-center justify-center gap-1 rounded-xl bg-stone-100 text-stone-900 py-2 px-1 text-[11px] font-bold transition-all duration-200 hover:bg-stone-200 active:scale-95 dark:bg-stone-800 dark:text-stone-100"
                         aria-label="पुष्पवृष्टी करा"
                       >
                         <span className="text-xl">🌸</span>
                         <span className="truncate">पुष्पवृष्टी</span>
                       </button>
 
-                      {/* 🔔 Temple Bell Button */}
                       <button
                         type="button"
                         onClick={handleRingBell}
-                        className="flex flex-col items-center justify-center gap-1 rounded-xl bg-stone-100/90 text-stone-900 py-2 px-1 text-[11px] font-bold transition-all duration-300 hover:bg-stone-200/90 active:scale-90 dark:bg-stone-800 dark:text-stone-100"
+                        className="flex flex-col items-center justify-center gap-1 rounded-xl bg-stone-100 text-stone-900 py-2 px-1 text-[11px] font-bold transition-all duration-200 hover:bg-stone-200 active:scale-95 dark:bg-stone-800 dark:text-stone-100"
                         aria-label="घंटा नाद अनुभवा"
                       >
                         <span className={`text-xl inline-block ${bellRinging ? 'animate-bell' : ''}`}>🔔</span>
@@ -410,7 +403,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Quick info below the sanctum */}
               <div className="mt-3 flex items-center justify-between px-2 text-xs text-stone-500 dark:text-stone-400">
                 <span className="flex items-center gap-1.5 font-medium">
                   <Sparkles size={13} className="text-amber-500" />
@@ -418,7 +410,7 @@ export default function Home() {
                 </span>
                 <Link
                   to="/about"
-                  className="font-bold text-amber-700 hover:underline dark:text-amber-400"
+                  className="font-bold text-[#174478] hover:underline dark:text-sky-400"
                 >
                   मंदिर इतिहास →
                 </Link>
@@ -427,88 +419,80 @@ export default function Home() {
             </div>
           </div>
 
-          {/* ───────── CONTENT & SEARCH COLUMN ───────── */}
+          {/* ───────── LEFT COLUMN: TYPOGRAPHY, SEARCH & ACTIONS ───────── */}
           <div className="lg:order-1 lg:col-span-7 flex flex-col justify-center">
             
-            {/* Top Village Kicker */}
-            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-amber-300/80 bg-amber-100/70 px-4 py-1.5 text-xs font-black text-amber-950 shadow-xs dark:border-amber-700/60 dark:bg-amber-950/60 dark:text-amber-300">
+            {/* Village Tag Kicker */}
+            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-amber-300/80 bg-amber-50 px-3.5 py-1 text-xs font-bold text-amber-900 dark:border-amber-700/60 dark:bg-amber-950/60 dark:text-amber-300">
               <SacredDiyaIcon size={14} className="text-amber-600 dark:text-amber-400" />
               <span>॥ मालघर गाव · वाजेवाडी आरती संग्रह ॥</span>
             </div>
 
-            {/* Title & Subheading Card Block with White BG, Dual Border Accent & Rich Styling */}
-            <div className="relative overflow-hidden mt-4 rounded-3xl border-2 border-stone-200/90 bg-white p-5 sm:p-7 shadow-lg shadow-amber-500/5 dark:border-stone-800 dark:bg-stone-900">
-              {/* Corner Temple Gold Accent Overlay */}
-              <div className="absolute top-0 right-0 w-28 h-28 bg-gradient-to-bl from-amber-400/20 via-amber-300/5 to-transparent rounded-bl-full pointer-events-none" />
+            {/* Main Headline - Clean, Bold, Professional */}
+            <h1 className="mt-4 font-[Yatra_One] text-3xl leading-tight text-[#174478] sm:text-4xl md:text-5xl dark:text-sky-300">
+              पवित्र आरत्या व भजने
+            </h1>
+            
+            {/* Tagline */}
+            <p className="mt-1.5 font-[Yatra_One] text-xl sm:text-2xl text-amber-700 dark:text-amber-400 font-bold">
+              मनाची शांती · भक्तीचा प्रकाश
+            </p>
 
-              <h1 className="font-[Yatra_One] text-3xl leading-[1.18] tracking-tight text-[#174478] sm:text-4xl md:text-5xl dark:text-sky-300 drop-shadow-2xs">
-                पवित्र आरत्या व भजने
-              </h1>
-              
-              <div className="mt-2.5 inline-flex items-center gap-2.5 rounded-xl bg-amber-500/10 border border-amber-400/30 px-3.5 py-1 text-stone-900 dark:text-amber-300">
-                <SacredDiyaIcon size={16} className="text-amber-600 dark:text-amber-400 animate-pulse" />
-                <p className="font-[Yatra_One] text-lg sm:text-2xl text-[#174478] dark:text-amber-300 font-extrabold">
-                  मनाची शांती · भक्तीचा प्रकाश
-                </p>
-              </div>
+            {/* Description */}
+            <p className="mt-3.5 text-sm leading-relaxed text-stone-600 sm:text-base dark:text-stone-300">
+              गणेश, शिव, हनुमान, विठ्ठल, दुर्गा देवी व सर्व देवतांच्या पारंपरिक आरत्या, स्तोत्रे व भजने — स्पष्ट व मोठ्या देवनागरी अक्षरात, दैनंदिन पूजेसाठी.
+            </p>
 
-              <p className="mt-3.5 text-sm leading-relaxed text-stone-700 sm:text-base dark:text-stone-300 font-medium">
-                गणेश, शिव, हनुमान, विठ्ठल, दुर्गा देवी व सर्व देवतांच्या पारंपरिक आरत्या, स्तोत्रे व भजने — स्पष्ट व मोठ्या देवनागरी अक्षरात, दैनंदिन पूजेसाठी.
-              </p>
-            </div>
-
-            {/* Luxury Search Form */}
+            {/* Professional Search Input Bar */}
             <form onSubmit={handleHeroSearchSubmit} className="mt-6 max-w-lg">
-              <div className="relative rounded-2xl p-1 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-400 shadow-lg shadow-amber-500/15">
-                <div className="relative flex items-center rounded-[0.9rem] bg-white dark:bg-stone-900">
-                  <Search size={18} className="absolute left-4 text-amber-600 dark:text-amber-400" />
-                  <input
-                    type="text"
-                    value={heroSearch}
-                    onChange={(e) => setHeroSearch(e.target.value)}
-                    placeholder="आरती शोधा — उदा. सुखकर्ता, शिव, हनुमान..."
-                    className="w-full rounded-[0.9rem] bg-transparent py-3.5 pr-24 pl-11 text-sm font-semibold text-stone-900 placeholder:text-stone-400 focus:outline-none dark:text-stone-100"
-                  />
-                  <button
-                    type="submit"
-                    className="absolute right-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 px-5 py-2.5 text-xs font-extrabold text-stone-950 shadow-md transition hover:from-amber-400 hover:to-amber-500 active:scale-95"
-                  >
-                    शोधा
-                  </button>
-                </div>
+              <div className="relative flex items-center rounded-2xl border-2 border-stone-200 bg-white shadow-sm focus-within:border-[#174478] dark:border-stone-700 dark:bg-stone-800">
+                <Search size={18} className="absolute left-4 text-[#174478] dark:text-sky-400" />
+                <input
+                  type="text"
+                  value={heroSearch}
+                  onChange={(e) => setHeroSearch(e.target.value)}
+                  placeholder="आरती शोधा — उदा. सुखकर्ता, शिव, हनुमान..."
+                  className="w-full rounded-2xl bg-transparent py-3.5 pr-28 pl-11 text-sm font-semibold text-stone-900 placeholder:text-stone-400 focus:outline-none dark:text-stone-100"
+                />
+                <button
+                  type="submit"
+                  className="absolute right-1.5 rounded-xl bg-[#174478] px-5 py-2.5 text-xs font-extrabold text-white shadow-sm transition hover:bg-[#123660] active:scale-95 dark:bg-sky-500 dark:text-stone-950"
+                >
+                  शोधा
+                </button>
               </div>
             </form>
 
-            {/* Quick Deity Filter Chips */}
+            {/* Quick Deity Chips */}
             <div className="mt-4 flex flex-wrap items-center gap-1.5">
               <span className="text-xs font-bold text-stone-400 dark:text-stone-500">त्वरित दर्शन:</span>
               {QUICK_DEITIES.map((d) => (
                 <Link
                   key={d.id}
                   to={`/aartis?category=${d.id}`}
-                  className="inline-flex items-center gap-1 rounded-lg border border-amber-200/70 bg-white/80 px-2.5 py-1 text-xs font-bold text-stone-700 shadow-2xs transition hover:border-amber-400 hover:text-amber-800 active:scale-95 dark:border-stone-800 dark:bg-stone-800 dark:text-stone-300 dark:hover:text-amber-300"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-stone-200 bg-white px-3 py-1 text-xs font-bold text-stone-700 shadow-2xs transition hover:border-[#174478] hover:text-[#174478] active:scale-95 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-300 dark:hover:border-sky-400 dark:hover:text-sky-300"
                 >
-                  <DeityIcon id={d.id} size={12} className="text-amber-600 dark:text-amber-400" />
+                  <DeityIcon id={d.id} size={13} className="text-[#174478] dark:text-sky-400" />
                   <span>{d.label}</span>
                 </Link>
               ))}
             </div>
 
-            {/* Direct Quick Link to Nitya Path Schedule */}
-            <div className="mt-5 flex items-center justify-between gap-2 rounded-2xl border border-amber-200/80 bg-gradient-to-r from-amber-50/90 via-white to-amber-50/90 px-4 py-2.5 shadow-2xs dark:border-amber-900/40 dark:from-stone-900 dark:via-stone-900 dark:to-stone-900">
+            {/* Current Worship Schedule Alert Pill */}
+            <div className="mt-5 flex items-center justify-between gap-2 rounded-2xl border border-stone-200 bg-stone-50 px-4 py-2.5 dark:border-stone-800 dark:bg-stone-800/80">
               <div className="flex items-center gap-2.5">
                 <span className="relative flex h-2.5 w-2.5">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
                 </span>
                 <p className="text-xs font-bold text-stone-800 dark:text-stone-200">
-                  सध्याची उपासना: <span className="text-amber-800 dark:text-amber-300 font-extrabold">{currentPeriod} नित्यपाठ</span>
+                  सध्याची उपासना: <span className="text-[#174478] dark:text-sky-300 font-extrabold">{currentPeriod} नित्यपाठ</span>
                 </p>
               </div>
 
               <a
                 href="#nitya-path-section"
-                className="inline-flex items-center gap-1 text-xs font-extrabold text-amber-700 hover:text-amber-800 hover:underline dark:text-amber-400"
+                className="inline-flex items-center gap-1 text-xs font-extrabold text-[#174478] hover:underline dark:text-sky-400"
               >
                 <span>वेळापत्रक पहा</span>
                 <ArrowRight size={13} />
@@ -516,19 +500,19 @@ export default function Home() {
             </div>
 
             {/* Quick Metrics */}
-            <div className="mt-8 flex items-center gap-6 border-t border-amber-200/60 pt-5 dark:border-stone-800">
+            <div className="mt-6 flex items-center gap-6 border-t border-stone-200 pt-5 dark:border-stone-800">
               <div>
-                <p className="font-[Yatra_One] text-2xl font-bold text-amber-700 dark:text-amber-400">{toMr(ITEMS.length)}+</p>
+                <p className="font-[Yatra_One] text-2xl font-bold text-[#174478] dark:text-sky-400">{toMr(ITEMS.length)}+</p>
                 <p className="text-xs font-semibold text-stone-500 dark:text-stone-400">पवित्र रचना</p>
               </div>
-              <div className="h-8 w-px bg-amber-200 dark:bg-stone-800" />
+              <div className="h-8 w-px bg-stone-200 dark:bg-stone-800" />
               <div>
-                <p className="font-[Yatra_One] text-2xl font-bold text-amber-700 dark:text-amber-400">{toMr(CATEGORIES.length)}</p>
+                <p className="font-[Yatra_One] text-2xl font-bold text-[#174478] dark:text-sky-400">{toMr(CATEGORIES.length)}</p>
                 <p className="text-xs font-semibold text-stone-500 dark:text-stone-400">आराध्य देवता</p>
               </div>
-              <div className="h-8 w-px bg-amber-200 dark:bg-stone-800" />
+              <div className="h-8 w-px bg-stone-200 dark:bg-stone-800" />
               <div>
-                <p className="font-[Yatra_One] text-2xl font-bold text-amber-700 dark:text-amber-400">१००%</p>
+                <p className="font-[Yatra_One] text-2xl font-bold text-[#174478] dark:text-sky-400">१००%</p>
                 <p className="text-xs font-semibold text-stone-500 dark:text-stone-400">सुलभ वाचन</p>
               </div>
             </div>
@@ -538,20 +522,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════════════ DEITY CIRCULAR STORIES STRIP (WHITE BG, BORDERS & MOVING ANIMATION) ═══════════════ */}
-      <section aria-label="देवता दर्शन पट्टी" className="relative rounded-3xl border-2 border-stone-200/90 bg-white p-5 shadow-lg dark:border-stone-800 dark:bg-stone-900">
+      {/* ═══════════════ DEITY STRIP (PROFESSIONAL WHITE CARD + MOVING ANIMATION) ═══════════════ */}
+      <section aria-label="देवता दर्शन पट्टी" className="relative rounded-3xl border border-stone-200 bg-white p-5 shadow-sm dark:border-stone-800 dark:bg-stone-900">
         <div className="mb-4 flex items-center justify-between px-1">
-          <div className="flex items-center gap-2.5">
-            <div className="grid h-8 w-8 place-items-center rounded-full bg-[#174478]/10 text-[#174478] dark:bg-sky-400/20 dark:text-sky-300">
-              <SacredDiyaIcon size={18} />
-            </div>
+          <div className="flex items-center gap-2">
+            <SacredDiyaIcon size={18} className="text-[#174478] dark:text-sky-400" />
             <h2 className="font-[Yatra_One] text-lg sm:text-xl text-stone-950 dark:text-stone-100">
               आराध्य देवता दर्शन
             </h2>
           </div>
           <Link
             to="/categories"
-            className="inline-flex items-center gap-1 rounded-full bg-[#174478]/10 px-3.5 py-1 text-xs font-extrabold text-[#174478] transition hover:bg-[#174478] hover:text-white dark:bg-sky-400/15 dark:text-sky-300 dark:hover:bg-sky-400 dark:hover:text-stone-950"
+            className="inline-flex items-center gap-1 text-xs font-extrabold text-[#174478] hover:underline dark:text-sky-400"
           >
             <span>सर्व श्रेणी पहा</span>
             <ArrowRight size={13} />
@@ -567,7 +549,7 @@ export default function Home() {
                 <Link
                   key={`${d.id}-${index}`}
                   to={`/aartis?category=${d.id}`}
-                  className="group flex flex-col items-center shrink-0 text-center rounded-2xl border-2 border-stone-200/90 bg-white px-4 py-3 shadow-xs transition-all duration-300 hover:border-[#174478] hover:shadow-md active:scale-95 dark:border-stone-700 dark:bg-stone-900"
+                  className="group flex flex-col items-center shrink-0 text-center rounded-2xl border border-stone-200 bg-stone-50 px-4 py-3 transition-all duration-300 hover:border-[#174478] hover:bg-white hover:shadow-md active:scale-95 dark:border-stone-800 dark:bg-stone-800 dark:hover:border-sky-400"
                 >
                   {/* Circular Avatar */}
                   <div className="relative p-0.5 rounded-full bg-gradient-to-tr from-[#174478] via-amber-400 to-[#174478] shadow-xs transition-transform duration-300 group-hover:scale-105">
@@ -578,7 +560,7 @@ export default function Home() {
                   <span className="mt-2 block max-w-[90px] truncate text-xs font-bold text-stone-900 group-hover:text-[#174478] dark:text-stone-100 dark:group-hover:text-sky-300">
                     {d.name}
                   </span>
-                  <span className="mt-1 rounded-full bg-white border-2 border-stone-200/90 px-2.5 py-0.5 text-[10px] font-extrabold text-[#174478] dark:bg-stone-800 dark:border-stone-700 dark:text-sky-300">
+                  <span className="mt-1 rounded-full bg-white border border-stone-200 px-2.5 py-0.5 text-[10px] font-extrabold text-[#174478] dark:bg-stone-900 dark:border-stone-700 dark:text-sky-300">
                     {toMr(count)} आरत्या
                   </span>
                 </Link>
