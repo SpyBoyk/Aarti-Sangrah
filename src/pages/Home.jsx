@@ -18,6 +18,7 @@ import {
 import { CATEGORIES, ITEMS } from '../data/aartis';
 import AartiCard from '../components/AartiCard';
 import SectionHeading from '../components/SectionHeading';
+import Pagination from '../components/Pagination';
 import { DeityIcon, SacredDiyaIcon } from '../components/DeityIcon';
 
 const FEATURES = [
@@ -210,11 +211,37 @@ export default function Home() {
     return counts;
   }, []);
 
-  const featuredList = useMemo(() => {
-    const allFeatured = ITEMS.filter((i) => i.featured);
-    if (activeFilter === 'all') return allFeatured.slice(0, 6);
-    return ITEMS.filter((i) => i.category === activeFilter).slice(0, 6);
+  const [currentPage, setCurrentPage] = useState(1);
+  const PAGE_SIZE = 6;
+
+  const currentCategoryList = useMemo(() => {
+    if (activeFilter === 'all') {
+      const featured = ITEMS.filter((i) => i.featured);
+      const rest = ITEMS.filter((i) => !i.featured);
+      return [...featured, ...rest];
+    }
+    return ITEMS.filter((i) => i.category === activeFilter);
   }, [activeFilter]);
+
+  const totalPages = Math.ceil(currentCategoryList.length / PAGE_SIZE);
+
+  const paginatedList = useMemo(() => {
+    const start = (currentPage - 1) * PAGE_SIZE;
+    return currentCategoryList.slice(start, start + PAGE_SIZE);
+  }, [currentCategoryList, currentPage]);
+
+  const handleFilterChange = (filterId) => {
+    setActiveFilter(filterId);
+    setCurrentPage(1);
+  };
+
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+    const target = document.getElementById('curated-aartis-section');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   const popular = useMemo(() => {
     return [...ITEMS]
@@ -591,7 +618,7 @@ export default function Home() {
       </section>
 
       {/* ═══════════════ CURATED FEATURED AARTIS ═══════════════ */}
-      <section aria-label="विशेष निवडक आरत्या">
+      <section id="curated-aartis-section" aria-label="विशेष निवडक आरत्या" className="scroll-mt-20">
         <SectionHeading
           kicker="विशेष संग्रह"
           title="विशेष निवडक आरत्या"
@@ -621,7 +648,7 @@ export default function Home() {
           ].map((tab) => (
             <button
               key={tab.id}
-              onClick={() => setActiveFilter(tab.id)}
+              onClick={() => handleFilterChange(tab.id)}
               className={`inline-flex shrink-0 items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-extrabold transition active:scale-95 ${
                 activeFilter === tab.id
                   ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-stone-950 shadow-md shadow-amber-500/25'
@@ -642,10 +669,19 @@ export default function Home() {
         </div>
 
         <div className="grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {featuredList.map((item) => (
+          {paginatedList.map((item) => (
             <AartiCard key={item.id} item={item} />
           ))}
         </div>
+
+        {/* Professional Pagination Bar */}
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+          totalItems={currentCategoryList.length}
+          pageSize={PAGE_SIZE}
+        />
       </section>
 
       {/* ═══════════════ POPULAR & BHAJANS ═══════════════ */}

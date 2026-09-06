@@ -4,6 +4,7 @@ import { Search, SlidersHorizontal, Sparkles, RotateCcw } from 'lucide-react';
 import { CATEGORIES, ITEMS } from '../data/aartis';
 import AartiCard from '../components/AartiCard';
 import SectionHeading from '../components/SectionHeading';
+import Pagination from '../components/Pagination';
 import { DeityIcon } from '../components/DeityIcon';
 
 export default function Browse({ type, searchMode = false }) {
@@ -13,6 +14,8 @@ export default function Browse({ type, searchMode = false }) {
 
   const [query, setQuery] = useState(initialQ);
   const [category, setCategory] = useState(initialCat);
+  const [currentPage, setCurrentPage] = useState(1);
+  const PAGE_SIZE = 9;
 
   const title = searchMode ? 'शोध' : type === 'aarti' ? 'आरत्या' : type === 'bhajan' ? 'भजने' : 'सर्व रचना';
 
@@ -29,12 +32,30 @@ export default function Browse({ type, searchMode = false }) {
     });
   }, [query, category, type]);
 
+  const totalPages = Math.ceil(results.length / PAGE_SIZE);
+
+  const paginatedResults = useMemo(() => {
+    const start = (currentPage - 1) * PAGE_SIZE;
+    return results.slice(start, start + PAGE_SIZE);
+  }, [results, currentPage]);
+
   const updateCat = (c) => {
     setCategory(c);
+    setCurrentPage(1);
     const next = {};
     if (query) next.q = query;
     if (c !== 'all') next.category = c;
     setParams(next, { replace: true });
+  };
+
+  const handleQueryChange = (val) => {
+    setQuery(val);
+    setCurrentPage(1);
+  };
+
+  const handlePageChange = (p) => {
+    setCurrentPage(p);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const hasActiveFilter = category !== 'all' || query.trim() !== '';
@@ -134,11 +155,21 @@ export default function Browse({ type, searchMode = false }) {
           </button>
         </div>
       ) : (
-        <div className="mt-5 grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {results.map((item) => (
-            <AartiCard key={item.id} item={item} />
-          ))}
-        </div>
+        <>
+          <div className="mt-5 grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {paginatedResults.map((item) => (
+              <AartiCard key={item.id} item={item} />
+            ))}
+          </div>
+
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+            totalItems={results.length}
+            pageSize={PAGE_SIZE}
+          />
+        </>
       )}
     </div>
   );
