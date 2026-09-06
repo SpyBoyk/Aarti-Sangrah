@@ -46,8 +46,7 @@ function MobileNav() {
             key={to}
             to={to}
             className={({ isActive }) =>
-              `relative flex flex-col items-center gap-0.5 py-2.5 text-[11px] font-bold transition active:scale-95 ${
-                isActive ? 'text-[#174478] dark:text-sky-300' : 'text-stone-500 dark:text-stone-400'
+              `relative flex flex-col items-center gap-0.5 py-2.5 text-[11px] font-bold transition active:scale-95 ${isActive ? 'text-[#174478] dark:text-sky-300' : 'text-stone-500 dark:text-stone-400'
               }`
             }
           >

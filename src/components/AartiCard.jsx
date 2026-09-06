@@ -15,7 +15,7 @@ export default function AartiCard({ item }) {
 
   return (
     <article className="fade-up group relative flex flex-col justify-between rounded-2xl border border-stone-200 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#174478]/30 hover:shadow-xl hover:shadow-[#174478]/[0.03] dark:border-stone-800 dark:bg-stone-900 dark:hover:border-stone-700">
-      
+
       {/* Subtle hover accent line at top */}
       <div className="absolute inset-x-0 top-0 h-1 rounded-t-2xl bg-gradient-to-r from-transparent via-[#174478]/0 to-transparent transition-all duration-500 group-hover:via-[#174478]/40 dark:group-hover:via-sky-500/40" />
 
@@ -63,11 +63,11 @@ export default function AartiCard({ item }) {
         {/* Meta Stats */}
         <div className="flex items-center gap-4 text-[11px] font-medium text-stone-500 dark:text-stone-400">
           <span className="flex items-center gap-1.5">
-            <Clock size={12} className="text-[#174478]/70 dark:text-sky-400/70" /> 
+            <Clock size={12} className="text-[#174478]/70 dark:text-sky-400/70" />
             {durationText}
           </span>
           <span className="flex items-center gap-1.5">
-            <Eye size={12} className="text-[#174478]/70 dark:text-sky-400/70" /> 
+            <Eye size={12} className="text-[#174478]/70 dark:text-sky-400/70" />
             {viewsEn} वाचक
           </span>
         </div>
@@ -86,11 +86,10 @@ export default function AartiCard({ item }) {
             onClick={() => toggleFavorite(item.id)}
             aria-pressed={fav}
             aria-label={fav ? `आवडत्यातून काढा` : `आवडते जतन करा`}
-            className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl border shadow-sm transition active:scale-95 ${
-              fav
+            className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl border shadow-sm transition active:scale-95 ${fav
                 ? 'border-red-200 bg-red-50 text-red-600 dark:border-red-900/50 dark:bg-red-950/30 dark:text-red-400'
                 : 'border-stone-200 bg-white text-stone-400 hover:border-red-200 hover:text-red-500 dark:border-stone-700 dark:bg-stone-900 dark:hover:border-stone-600 dark:hover:text-red-400'
-            }`}
+              }`}
           >
             <Heart size={16} fill={fav ? 'currentColor' : 'none'} className={fav ? 'scale-110' : ''} />
           </button>

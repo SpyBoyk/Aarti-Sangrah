@@ -26,6 +26,59 @@
         href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&family=Tiro+Devanagari+Hindi&family=Yatra+One&family=Inter:wght@400;600;700&display=swap"
       />
     </noscript>
+    <style>
+      .temple-arch { border-radius: 3.5rem 3.5rem 1.5rem 1.5rem !important; }
+      .sanctum-frame {
+        position: relative !important;
+        width: 100% !important;
+        min-height: 440px !important;
+        height: 460px !important;
+        overflow: hidden !important;
+        display: block !important;
+      }
+      .sanctum-img {
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 440px !important;
+        object-fit: cover !important;
+        object-position: center 15% !important;
+        display: block !important;
+      }
+      .divine-border {
+        animation: divine-ring 3.5s ease-in-out infinite;
+      }
+      @keyframes divine-ring {
+        0%, 100% {
+          box-shadow: 0 0 25px -3px rgba(245, 158, 11, 0.45), 0 0 50px -10px rgba(217, 119, 6, 0.3), inset 0 0 15px -3px rgba(245, 158, 11, 0.25);
+        }
+        50% {
+          box-shadow: 0 0 45px 5px rgba(245, 158, 11, 0.75), 0 0 80px 0px rgba(217, 119, 6, 0.45), inset 0 0 25px 0px rgba(245, 158, 11, 0.4);
+        }
+      }
+      @keyframes petal-fall {
+        0% { transform: translateY(-30px) rotate(0deg) scale(0.6); opacity: 0; }
+        15% { opacity: 1; }
+        80% { opacity: 0.95; }
+        100% { transform: translateY(420px) rotate(420deg) scale(1.1); opacity: 0; }
+      }
+      .animate-petal {
+        animation: petal-fall 2.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+      }
+      @keyframes bell-chime {
+        0% { transform: rotate(0deg); }
+        20% { transform: rotate(18deg); }
+        40% { transform: rotate(-16deg); }
+        60% { transform: rotate(12deg); }
+        80% { transform: rotate(-8deg); }
+        100% { transform: rotate(0deg); }
+      }
+      .animate-bell {
+        animation: bell-chime 0.85s ease-in-out;
+        transform-origin: top center;
+      }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
   </head>
   <body>
     <div id="root"></div>
