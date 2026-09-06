@@ -166,7 +166,7 @@ export default function Home() {
   const navigate = useNavigate();
   const [heroSearch, setHeroSearch] = useState('');
   const [activeFilter, setActiveFilter] = useState('all');
-  const [agarbattiLit, setAgarbattiLit] = useState(false);
+  const [agarbattiLit, setAgarbattiLit] = useState(true);
   const [diyaCount, setDiyaCount] = useState(() => {
     const saved = localStorage.getItem('wajewadi_diya_count');
     return saved ? parseInt(saved, 10) : 1248;
