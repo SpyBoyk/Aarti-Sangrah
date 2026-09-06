@@ -433,19 +433,20 @@ export default function Home() {
               <span>॥ मालघर गाव · वाजेवाडी आरती संग्रह ॥</span>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="mt-4 font-[Yatra_One] text-3xl leading-[1.15] tracking-tight text-stone-950 sm:text-4xl md:text-5xl dark:text-stone-50">
-              पवित्र आरत्या व भजने
-            </h1>
-            
-            {/* Gold Sheen Subheading */}
-            <p className="mt-1 font-[Yatra_One] text-xl sm:text-2xl md:text-3xl gold-sheen font-bold">
-              मनाची शांती · भक्तीचा प्रकाश
-            </p>
+            {/* Title & Subheading Card Block with White BG & Crisp Borders */}
+            <div className="mt-4 rounded-2xl border-2 border-stone-200/90 bg-white p-4.5 sm:p-6 shadow-md dark:border-stone-800 dark:bg-stone-900">
+              <h1 className="font-[Yatra_One] text-3xl leading-[1.15] tracking-tight text-stone-950 sm:text-4xl md:text-5xl dark:text-stone-50">
+                पवित्र आरत्या व भजने
+              </h1>
+              
+              <p className="mt-1.5 font-[Yatra_One] text-xl sm:text-2xl md:text-3xl text-[#174478] dark:text-sky-300 font-bold">
+                मनाची शांती · भक्तीचा प्रकाश
+              </p>
 
-            <p className="mt-4 text-sm leading-relaxed text-stone-600 sm:text-base dark:text-stone-300">
-              गणेश, शिव, हनुमान, विठ्ठल, दुर्गा देवी व सर्व देवतांच्या पारंपरिक आरत्या, स्तोत्रे व भजने — स्पष्ट व मोठ्या देवनागरी अक्षरात, दैनंदिन पूजेसाठी.
-            </p>
+              <p className="mt-3 text-sm leading-relaxed text-stone-600 sm:text-base dark:text-stone-300">
+                गणेश, शिव, हनुमान, विठ्ठल, दुर्गा देवी व सर्व देवतांच्या पारंपरिक आरत्या, स्तोत्रे व भजने — स्पष्ट व मोठ्या देवनागरी अक्षरात, दैनंदिन पूजेसाठी.
+              </p>
+            </div>
 
             {/* Luxury Search Form */}
             <form onSubmit={handleHeroSearchSubmit} className="mt-6 max-w-lg">
@@ -528,8 +529,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════════════ DEITY CIRCULAR STORIES STRIP (WHITE BG & CLEAN NO DUPLICATES) ═══════════════ */}
-      <section aria-label="देवता दर्शन पट्टी" className="relative rounded-3xl border border-stone-200/90 bg-white p-4.5 shadow-sm dark:border-stone-800 dark:bg-stone-900">
+      {/* ═══════════════ DEITY CIRCULAR STORIES STRIP (WHITE BG, BORDERS & MOVING ANIMATION) ═══════════════ */}
+      <section aria-label="देवता दर्शन पट्टी" className="relative rounded-3xl border-2 border-stone-200/90 bg-white p-4.5 shadow-md dark:border-stone-800 dark:bg-stone-900">
         <div className="mb-3.5 flex items-center justify-between px-1">
           <div className="flex items-center gap-2">
             <SacredDiyaIcon size={16} className="text-[#174478] dark:text-sky-400" />
@@ -545,31 +546,33 @@ export default function Home() {
           </Link>
         </div>
 
-        {/* Clean, Non-duplicated horizontal deity cards */}
-        <div className="no-scrollbar flex items-center gap-3.5 sm:gap-4 overflow-x-auto pb-1 pt-1 px-1">
-          {DEITY_STORIES.map((d) => {
-            const count = categoryCounts[d.id] || 0;
-            return (
-              <Link
-                key={d.id}
-                to={`/aartis?category=${d.id}`}
-                className="group flex flex-col items-center shrink-0 text-center rounded-2xl border border-stone-200/80 bg-stone-50/60 px-3.5 py-3 transition-all duration-300 hover:border-[#174478] hover:bg-white hover:shadow-md active:scale-95 dark:border-stone-800 dark:bg-stone-800/60 dark:hover:border-sky-400 dark:hover:bg-stone-800"
-              >
-                {/* Circular Avatar */}
-                <div className="relative p-0.5 rounded-full bg-gradient-to-tr from-[#174478] via-amber-400 to-[#174478] shadow-xs transition-transform duration-300 group-hover:scale-105">
-                  <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-white dark:bg-stone-900">
-                    <DeityIcon id={d.id} size={28} className="text-[#174478] dark:text-sky-300 transition-transform group-hover:scale-110" />
+        {/* Continuous Moving Marquee Animation with Pause on Hover */}
+        <div className="overflow-hidden">
+          <div className="flex w-max items-center gap-3.5 sm:gap-4 animate-marquee hover:[animation-play-state:paused] py-1">
+            {[...DEITY_STORIES, ...DEITY_STORIES].map((d, index) => {
+              const count = categoryCounts[d.id] || 0;
+              return (
+                <Link
+                  key={`${d.id}-${index}`}
+                  to={`/aartis?category=${d.id}`}
+                  className="group flex flex-col items-center shrink-0 text-center rounded-2xl border-2 border-stone-200/90 bg-white px-4 py-3 shadow-xs transition-all duration-300 hover:border-[#174478] hover:shadow-md active:scale-95 dark:border-stone-700 dark:bg-stone-900"
+                >
+                  {/* Circular Avatar */}
+                  <div className="relative p-0.5 rounded-full bg-gradient-to-tr from-[#174478] via-amber-400 to-[#174478] shadow-xs transition-transform duration-300 group-hover:scale-105">
+                    <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-white dark:bg-stone-900">
+                      <DeityIcon id={d.id} size={28} className="text-[#174478] dark:text-sky-300 transition-transform group-hover:scale-110" />
+                    </div>
                   </div>
-                </div>
-                <span className="mt-2 block max-w-[85px] truncate text-xs font-bold text-stone-900 group-hover:text-[#174478] dark:text-stone-100 dark:group-hover:text-sky-300">
-                  {d.name}
-                </span>
-                <span className="mt-0.5 rounded-full bg-white border border-stone-200 px-2 py-0.5 text-[10px] font-extrabold text-[#174478] dark:bg-stone-900 dark:border-stone-700 dark:text-sky-300">
-                  {toMr(count)} आरत्या
-                </span>
-              </Link>
-            );
-          })}
+                  <span className="mt-2 block max-w-[90px] truncate text-xs font-bold text-stone-900 group-hover:text-[#174478] dark:text-stone-100 dark:group-hover:text-sky-300">
+                    {d.name}
+                  </span>
+                  <span className="mt-1 rounded-full bg-white border-2 border-stone-200/90 px-2.5 py-0.5 text-[10px] font-extrabold text-[#174478] dark:bg-stone-800 dark:border-stone-700 dark:text-sky-300">
+                    {toMr(count)} आरत्या
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </section>
 
