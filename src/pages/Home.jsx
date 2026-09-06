@@ -303,106 +303,109 @@ export default function Home() {
           <div className="lg:order-2 lg:col-span-5 w-full">
             <div className="mx-auto max-w-[380px] sm:max-w-md w-full">
               
-              {/* Grand Arched Temple Sanctum Frame with Guaranteed Min-Height */}
+              {/* Grand Arched Temple Sanctum Frame with White Background & Crisp Border */}
               <div 
-                className="temple-arch divine-border sanctum-frame border-3 border-amber-400/85 bg-stone-950 shadow-2xl shadow-amber-500/25 dark:border-amber-500/70"
+                className="temple-arch sanctum-frame border-2 border-stone-200/90 bg-white p-2.5 shadow-xl dark:border-stone-800 dark:bg-stone-900"
                 style={{ minHeight: '440px', height: '460px', width: '100%', position: 'relative', overflow: 'hidden' }}
               >
                 
-                {/* Deity Photo (User's WhatsApp Image with Guaranteed Visibility) */}
-                <img
-                  src="/landing-hero.jpeg"
-                  alt="॥ स्वयंभू श्री सुकाई देवी प्रसन्न — वाजेवाडी मंदिर ॥"
-                  className="sanctum-img transition-transform duration-700 hover:scale-105"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 15%', display: 'block', minHeight: '440px' }}
-                  loading="eager"
-                  fetchPriority="high"
-                />
+                {/* Inner Image Container with Arch and White Background */}
+                <div className="relative h-full w-full overflow-hidden temple-arch bg-white dark:bg-stone-900">
+                  {/* Deity Photo (User's Image) */}
+                  <img
+                    src="/landing-hero.jpeg"
+                    alt="॥ स्वयंभू श्री सुकाई देवी प्रसन्न — वाजेवाडी मंदिर ॥"
+                    className="sanctum-img transition-transform duration-700 hover:scale-105"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 15%', display: 'block', minHeight: '440px' }}
+                    loading="eager"
+                    fetchPriority="high"
+                  />
 
-                {/* Devotional Gradient Overlay for contrast */}
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/20 to-stone-950/60" />
+                  {/* Elegant Gradient Overlay for contrast */}
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-stone-950/80 via-stone-950/20 to-transparent" />
 
-                {/* Falling Marigold Petal Shower Container */}
-                <div className="pointer-events-none absolute inset-0 z-20 overflow-hidden" aria-hidden="true">
-                  {petals.map((p) => (
-                    <div
-                      key={p.id}
-                      className="absolute top-0 animate-petal"
-                      style={{
-                        left: `${p.left}%`,
-                        animationDelay: `${p.delay}s`,
-                        animationDuration: `${p.duration}s`,
-                        fontSize: `${p.size}px`,
-                      }}
-                    >
-                      {p.icon}
+                  {/* Falling Marigold Petal Shower Container */}
+                  <div className="pointer-events-none absolute inset-0 z-20 overflow-hidden" aria-hidden="true">
+                    {petals.map((p) => (
+                      <div
+                        key={p.id}
+                        className="absolute top-0 animate-petal"
+                        style={{
+                          left: `${p.left}%`,
+                          animationDelay: `${p.delay}s`,
+                          animationDuration: `${p.duration}s`,
+                          fontSize: `${p.size}px`,
+                        }}
+                      >
+                        {p.icon}
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Top Floating Badges in Clean Light Glass Style */}
+                  <div className="absolute top-3.5 inset-x-3.5 flex items-center justify-between gap-2 z-10">
+                    <div className="flex items-center gap-1.5 rounded-full border border-stone-200 bg-white/95 px-3 py-1 text-[11px] font-extrabold text-[#174478] backdrop-blur-md shadow-md dark:border-stone-700 dark:bg-stone-900/90 dark:text-sky-300">
+                      <SacredDiyaIcon size={13} className="text-amber-500 animate-pulse" />
+                      <span>नित्य दर्शन</span>
                     </div>
-                  ))}
-                </div>
-
-                {/* Top Floating Badges */}
-                <div className="absolute top-3.5 inset-x-3.5 flex items-center justify-between gap-2 z-10">
-                  <div className="flex items-center gap-1.5 rounded-full border border-amber-300/40 bg-stone-950/80 px-3 py-1 text-[11px] font-bold text-amber-300 backdrop-blur-md shadow-md">
-                    <SacredDiyaIcon size={13} className="text-amber-400 animate-pulse" />
-                    <span>नित्य दर्शन</span>
-                  </div>
-                  <div className="flex items-center gap-1 rounded-full border border-amber-300/40 bg-stone-950/80 px-3 py-1 text-[11px] font-bold text-amber-300 backdrop-blur-md shadow-md">
-                    <span>✨ {diyaCount}+ दर्शन</span>
-                  </div>
-                </div>
-
-                {/* Bottom Shrine Content & Controls */}
-                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 z-10 text-white">
-                  
-                  {/* Temple Murti Title */}
-                  <div className="mb-3 text-center">
-                    <p className="text-[11px] font-extrabold tracking-widest text-amber-300 uppercase drop-shadow-sm">
-                      ॥ स्वयंभू श्री सुकाई देवी प्रसन्न ॥
-                    </p>
-                    <h2 className="font-[Yatra_One] text-lg sm:text-xl text-white drop-shadow-md">
-                      वाजेवाडी मंदिर · मालघर गाव
-                    </h2>
+                    <div className="flex items-center gap-1 rounded-full border border-stone-200 bg-white/95 px-3 py-1 text-[11px] font-extrabold text-[#174478] backdrop-blur-md shadow-md dark:border-stone-700 dark:bg-stone-900/90 dark:text-sky-300">
+                      <span>✨ {diyaCount}+ दर्शन</span>
+                    </div>
                   </div>
 
-                  {/* Interactive Ritual Action Buttons directly on the shrine */}
-                  <div className="grid grid-cols-3 gap-2 rounded-2xl border border-amber-300/30 bg-stone-900/85 p-2 backdrop-blur-md shadow-lg">
+                  {/* Bottom Shrine Content & Controls with Clean Card Styling */}
+                  <div className="absolute inset-x-0 bottom-0 p-3.5 sm:p-4 z-10 text-white">
                     
-                    {/* 🪔 Diya Button */}
-                    <button
-                      type="button"
-                      onClick={handleLightDiya}
-                      className={`flex flex-col items-center justify-center gap-1 rounded-xl py-2 px-1 text-[11px] font-bold transition-all duration-300 active:scale-90 ${
-                        diyaLit
-                          ? 'bg-gradient-to-t from-amber-600 to-amber-400 text-stone-950 shadow-md shadow-amber-500/50'
-                          : 'bg-white/10 text-amber-200 hover:bg-white/20'
-                      }`}
-                      aria-label="पवित्र दीप प्रज्वलन करा"
-                    >
-                      <span className={`text-xl transition-transform ${diyaLit ? 'scale-110 flame' : ''}`}>🪔</span>
-                      <span className="truncate">{diyaLit ? 'दीप प्रज्वलित' : 'दीप लावा'}</span>
-                    </button>
+                    {/* Temple Murti Title */}
+                    <div className="mb-2.5 text-center">
+                      <p className="text-[11px] font-extrabold tracking-widest text-amber-300 uppercase drop-shadow-sm">
+                        ॥ स्वयंभू श्री सुकाई देवी प्रसन्न ॥
+                      </p>
+                      <h2 className="font-[Yatra_One] text-lg sm:text-xl text-white drop-shadow-md">
+                        वाजेवाडी मंदिर · मालघर गाव
+                      </h2>
+                    </div>
 
-                    {/* 🌸 Flower Shower Button */}
-                    <button
-                      type="button"
-                      onClick={handleFlowerShower}
-                      className="flex flex-col items-center justify-center gap-1 rounded-xl bg-white/10 py-2 px-1 text-[11px] font-bold text-amber-200 transition-all duration-300 hover:bg-white/20 active:scale-90"
-                      aria-label="पुष्पवृष्टी करा"
-                    >
-                      <span className="text-xl">🌸</span>
-                      <span className="truncate">पुष्पवृष्टी</span>
-                    </button>
+                    {/* Interactive Ritual Action Buttons with White Glass Card styling */}
+                    <div className="grid grid-cols-3 gap-2 rounded-2xl border border-stone-200/80 bg-white/95 p-2 backdrop-blur-md shadow-lg text-stone-900 dark:bg-stone-900/90 dark:border-stone-700 dark:text-stone-100">
+                      
+                      {/* 🪔 Diya Button */}
+                      <button
+                        type="button"
+                        onClick={handleLightDiya}
+                        className={`flex flex-col items-center justify-center gap-1 rounded-xl py-2 px-1 text-[11px] font-bold transition-all duration-300 active:scale-90 ${
+                          diyaLit
+                            ? 'bg-[#174478] text-white shadow-md'
+                            : 'bg-stone-100/90 text-stone-900 hover:bg-stone-200/90 dark:bg-stone-800 dark:text-stone-100'
+                        }`}
+                        aria-label="पवित्र दीप प्रज्वलन करा"
+                      >
+                        <span className={`text-xl transition-transform ${diyaLit ? 'scale-110 flame' : ''}`}>🪔</span>
+                        <span className="truncate">{diyaLit ? 'दीप प्रज्वलित' : 'दीप लावा'}</span>
+                      </button>
 
-                    {/* 🔔 Temple Bell Button */}
-                    <button
-                      type="button"
-                      onClick={handleRingBell}
-                      className="flex flex-col items-center justify-center gap-1 rounded-xl bg-white/10 py-2 px-1 text-[11px] font-bold text-amber-200 transition-all duration-300 hover:bg-white/20 active:scale-90"
-                      aria-label="घंटा नाद अनुभवा"
-                    >
-                      <span className={`text-xl inline-block ${bellRinging ? 'animate-bell' : ''}`}>🔔</span>
-                      <span className="truncate">घंटा नाद</span>
-                    </button>
+                      {/* 🌸 Flower Shower Button */}
+                      <button
+                        type="button"
+                        onClick={handleFlowerShower}
+                        className="flex flex-col items-center justify-center gap-1 rounded-xl bg-stone-100/90 text-stone-900 py-2 px-1 text-[11px] font-bold transition-all duration-300 hover:bg-stone-200/90 active:scale-90 dark:bg-stone-800 dark:text-stone-100"
+                        aria-label="पुष्पवृष्टी करा"
+                      >
+                        <span className="text-xl">🌸</span>
+                        <span className="truncate">पुष्पवृष्टी</span>
+                      </button>
+
+                      {/* 🔔 Temple Bell Button */}
+                      <button
+                        type="button"
+                        onClick={handleRingBell}
+                        className="flex flex-col items-center justify-center gap-1 rounded-xl bg-stone-100/90 text-stone-900 py-2 px-1 text-[11px] font-bold transition-all duration-300 hover:bg-stone-200/90 active:scale-90 dark:bg-stone-800 dark:text-stone-100"
+                        aria-label="घंटा नाद अनुभवा"
+                      >
+                        <span className={`text-xl inline-block ${bellRinging ? 'animate-bell' : ''}`}>🔔</span>
+                        <span className="truncate">घंटा नाद</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
