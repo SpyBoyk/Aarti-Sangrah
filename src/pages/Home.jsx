@@ -186,19 +186,19 @@ export default function Home() {
 
   const handleFlowerShower = () => {
     playTempleBell(1.15);
-    const flowerIcons = ['🌼', '🌺', '🌸', '🌹', '✨', '🏵️'];
-    const generated = Array.from({ length: 16 }).map((_, i) => ({
+    const flowerIcons = ['🌼', '🌺', '🌸', '🌹', '✨', '🏵️', '💐', '🌻'];
+    const generated = Array.from({ length: 22 }).map((_, i) => ({
       id: Date.now() + i,
-      left: Math.floor(Math.random() * 86) + 7,
-      delay: (Math.random() * 0.7).toFixed(2),
-      duration: (2.2 + Math.random() * 1.1).toFixed(2),
-      size: Math.floor(Math.random() * 14) + 16,
+      left: Math.floor(Math.random() * 88) + 6,
+      delay: (Math.random() * 1.6).toFixed(2),
+      duration: (4.8 + Math.random() * 2.4).toFixed(2),
+      size: Math.floor(Math.random() * 14) + 18,
       icon: flowerIcons[Math.floor(Math.random() * flowerIcons.length)],
     }));
     setPetals(generated);
     setTimeout(() => {
       setPetals([]);
-    }, 3600);
+    }, 7800);
   };
 
   const handleRingBell = () => {
