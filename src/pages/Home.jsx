@@ -493,21 +493,19 @@ export default function Home() {
               </a>
             </div>
 
-            {/* Quick Metrics */}
-            <div className="mt-6 flex items-center gap-6 border-t border-stone-200 pt-5 dark:border-stone-800">
-              <div>
-                <p className="font-[Yatra_One] text-2xl font-bold text-[#174478] dark:text-sky-400">{toMr(ITEMS.length)}+</p>
-                <p className="text-xs font-semibold text-stone-500 dark:text-stone-400">पवित्र रचना</p>
+            {/* Quick Metrics (Evenly Spaced 3-Column Banner for Mobile & Desktop) */}
+            <div className="mt-6 grid grid-cols-3 divide-x divide-stone-200 rounded-2xl border border-stone-200 bg-stone-50/90 py-3 px-1 text-center shadow-2xs dark:divide-stone-800 dark:border-stone-800 dark:bg-stone-800/60">
+              <div className="px-1 sm:px-3">
+                <p className="font-[Yatra_One] text-xl sm:text-2xl font-bold text-[#174478] dark:text-sky-400">६६+</p>
+                <p className="text-[11px] sm:text-xs font-bold text-stone-600 dark:text-stone-300">पवित्र रचना</p>
               </div>
-              <div className="h-8 w-px bg-stone-200 dark:bg-stone-800" />
-              <div>
-                <p className="font-[Yatra_One] text-2xl font-bold text-[#174478] dark:text-sky-400">{toMr(CATEGORIES.length)}</p>
-                <p className="text-xs font-semibold text-stone-500 dark:text-stone-400">आराध्य देवता</p>
+              <div className="px-1 sm:px-3">
+                <p className="font-[Yatra_One] text-xl sm:text-2xl font-bold text-[#174478] dark:text-sky-400">१६</p>
+                <p className="text-[11px] sm:text-xs font-bold text-stone-600 dark:text-stone-300">आराध्य देवता</p>
               </div>
-              <div className="h-8 w-px bg-stone-200 dark:bg-stone-800" />
-              <div>
-                <p className="font-[Yatra_One] text-2xl font-bold text-[#174478] dark:text-sky-400">१००%</p>
-                <p className="text-xs font-semibold text-stone-500 dark:text-stone-400">सुलभ वाचन</p>
+              <div className="px-1 sm:px-3">
+                <p className="font-[Yatra_One] text-xl sm:text-2xl font-bold text-[#174478] dark:text-sky-400">१००%</p>
+                <p className="text-[11px] sm:text-xs font-bold text-stone-600 dark:text-stone-300">सुलभ वाचन</p>
               </div>
             </div>
 
