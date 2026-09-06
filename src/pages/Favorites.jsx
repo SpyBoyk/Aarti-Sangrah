@@ -27,7 +27,7 @@ export default function Favorites() {
           </p>
           <Link
             to="/aartis"
-            className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-[#174478] px-6 py-3 text-sm font-bold text-white transition active:scale-[0.98] hover:bg-[#1f5799]"
+            className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 px-6 py-3 text-sm font-extrabold text-stone-950 shadow-md transition hover:from-amber-400 hover:to-amber-500 active:scale-[0.98]"
           >
             <BookOpen size={16} /> आरत्या पहा
           </Link>

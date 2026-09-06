@@ -7,14 +7,12 @@
   --font-heading: "Yatra One", "Tiro Devanagari Hindi", system-ui, serif;
   --font-body: "Mukta", "Inter", system-ui, sans-serif;
 
-  --color-brand-50: #eef4fa;
-  --color-brand-100: #d9e6f4;
-  --color-brand-200: #b5cde8;
-  --color-brand-500: #2b6cb0;
-  --color-brand-600: #1f5799;
-  --color-brand-700: #174478;
-  --color-brand-800: #113259;
-  --color-brand-900: #0a1f38;
+  --color-temple-gold: #f59e0b;
+  --color-temple-amber: #d97706;
+  --color-temple-saffron: #ea580c;
+  --color-temple-vermilion: #c2410c;
+  --color-temple-bg-light: #fdfbf7;
+  --color-temple-bg-dark: #120e0a;
 }
 
 html {
@@ -23,7 +21,14 @@ html {
 
 body {
   font-family: var(--font-body);
+  background-color: var(--color-temple-bg-light);
+  color: #1c1917;
   -webkit-font-smoothing: antialiased;
+}
+
+.dark body {
+  background-color: var(--color-temple-bg-dark);
+  color: #f5f5f4;
 }
 
 /* Clean minimal background */
@@ -116,7 +121,7 @@ body {
 /* Devanagari reading */
 .reading-text {
   font-family: var(--font-devanagari);
-  line-height: 2.1;
+  line-height: 2.15;
   text-wrap: pretty;
 }
 
@@ -131,12 +136,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #e2cca6;
+  background: #f59e0b;
   border-radius: 9999px;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #523e2b;
+  background: #78350f;
 }
 
 /* Deity marquee strip */
@@ -209,7 +214,7 @@ body {
 }
 
 @utility royal-glow {
-  background: radial-gradient(circle at 50% 35%, rgba(245, 158, 11, 0.28) 0%, rgba(217, 119, 6, 0.1) 55%, transparent 75%);
+  background: radial-gradient(circle at 50% 35%, rgba(245, 158, 11, 0.3) 0%, rgba(217, 119, 6, 0.12) 55%, transparent 75%);
 }
 
 @utility gold-sheen {
@@ -219,6 +224,12 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   animation: gold-sheen 5s linear infinite;
+}
+
+@keyframes gold-sheen {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Focus visible for a11y */

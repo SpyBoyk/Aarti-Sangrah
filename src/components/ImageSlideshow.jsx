@@ -122,7 +122,7 @@ export default function ImageSlideshow({ className = '' }) {
             {/* Slide Info - Compact frosted glass badge */}
             <div className="absolute bottom-2.5 left-2.5 right-2.5 z-20 sm:bottom-4 sm:left-4 sm:right-auto sm:max-w-md">
               <div className="rounded-xl border border-white/15 bg-stone-950/60 p-2.5 sm:p-3.5 backdrop-blur-md">
-                <span className="inline-block rounded-full bg-[#174478] px-2 py-0.5 text-[9px] font-semibold tracking-wider text-sky-200 uppercase">
+                <span className="inline-block rounded-full bg-gradient-to-r from-amber-500 to-amber-600 px-2.5 py-0.5 text-[9px] font-extrabold tracking-wider text-stone-950 uppercase shadow-xs">
                   {slide.category}
                 </span>
                 <h3 className="mt-0.5 font-[Yatra_One] text-sm leading-tight text-white sm:text-lg md:text-xl">
@@ -175,7 +175,7 @@ export default function ImageSlideshow({ className = '' }) {
               aria-label={`चित्र ${index + 1}`}
               className={`h-1.5 rounded-full transition-all duration-300 ${
                 index === currentIndex
-                  ? 'w-4 bg-sky-400'
+                  ? 'w-4 bg-amber-400'
                   : 'w-1.5 bg-white/40 hover:bg-white/70'
               }`}
             />

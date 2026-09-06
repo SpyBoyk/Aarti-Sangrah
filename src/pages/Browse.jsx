@@ -69,10 +69,10 @@ export default function Browse({ type, searchMode = false }) {
       />
 
       {/* ── Filter Panel ── */}
-      <div className="rounded-3xl border border-stone-200 bg-white p-4 shadow-sm sm:p-6 dark:border-stone-800 dark:bg-stone-900">
+      <div className="rounded-3xl border border-amber-200/80 bg-white p-4 shadow-sm sm:p-6 dark:border-stone-800 dark:bg-stone-900">
         {/* Search Bar */}
         <div className="relative">
-          <Search size={18} className="absolute top-1/2 left-4 -translate-y-1/2 text-stone-400" />
+          <Search size={18} className="absolute top-1/2 left-4 -translate-y-1/2 text-amber-600 dark:text-amber-400" />
           <label htmlFor="browse-search" className="sr-only">नाव किंवा देवतेने शोधा</label>
           <input
             id="browse-search"
@@ -80,12 +80,12 @@ export default function Browse({ type, searchMode = false }) {
             onChange={(e) => setQuery(e.target.value)}
             placeholder="शोधा — “लक्ष्मी”, “हनुमान”, “विठ्ठल”…"
             enterKeyHint="search"
-            className="w-full rounded-2xl border border-stone-200 bg-stone-50 py-3.5 pr-24 pl-11 text-sm font-medium text-stone-900 transition placeholder:text-stone-400 focus:border-[#174478] focus:bg-white focus:ring-2 focus:ring-[#174478]/10 focus:outline-none dark:border-stone-700 dark:bg-stone-950 dark:text-stone-100 dark:focus:ring-[#174478]/20"
+            className="w-full rounded-2xl border border-amber-200/80 bg-amber-50/50 py-3.5 pr-24 pl-11 text-sm font-semibold text-stone-900 transition placeholder:text-stone-400 focus:border-amber-500 focus:bg-white focus:ring-2 focus:ring-amber-500/15 focus:outline-none dark:border-stone-700 dark:bg-stone-950 dark:text-stone-100 dark:focus:border-amber-400 dark:focus:ring-amber-400/20"
           />
           {query && (
             <button
               onClick={() => setQuery('')}
-              className="absolute top-1/2 right-2.5 -translate-y-1/2 rounded-full bg-stone-200 px-3 py-1.5 text-xs font-bold transition hover:bg-stone-300 active:scale-95 dark:bg-stone-700 dark:text-stone-200 dark:hover:bg-stone-600"
+              className="absolute top-1/2 right-2.5 -translate-y-1/2 rounded-full bg-amber-100 px-3 py-1.5 text-xs font-extrabold text-amber-900 transition hover:bg-amber-200 active:scale-95 dark:bg-stone-800 dark:text-amber-300"
             >
               साफ करा ✕
             </button>
@@ -95,10 +95,10 @@ export default function Browse({ type, searchMode = false }) {
         {/* Deity Filters */}
         <div className="mt-5">
           <div className="flex items-center justify-between">
-            <span className="inline-flex items-center gap-1.5 text-[11px] font-bold tracking-widest text-stone-500 uppercase dark:text-stone-400">
+            <span className="inline-flex items-center gap-1.5 text-[11px] font-extrabold tracking-widest text-amber-800 uppercase dark:text-amber-400">
               <SlidersHorizontal size={13} /> देवता निवडा
             </span>
-            <span className="inline-flex items-center gap-1 rounded-full bg-[#eef4fa] px-2.5 py-1 text-[11px] font-bold text-[#174478] dark:bg-stone-800 dark:text-sky-300">
+            <span className="inline-flex items-center gap-1 rounded-full bg-amber-100/90 px-2.5 py-1 text-[11px] font-extrabold text-amber-900 border border-amber-300/40 dark:bg-amber-950/60 dark:text-amber-300 dark:border-amber-800/40">
               <Sparkles size={11} />
               {results.length} रचना
             </span>
@@ -111,10 +111,10 @@ export default function Browse({ type, searchMode = false }) {
                 key={c.id}
                 onClick={() => updateCat(c.id)}
                 aria-pressed={category === c.id}
-                className={`inline-flex shrink-0 items-center gap-1.5 rounded-full border px-3.5 py-2 text-xs font-semibold transition-all active:scale-95 ${
+                className={`inline-flex shrink-0 items-center gap-1.5 rounded-full border px-3.5 py-2 text-xs font-extrabold transition-all active:scale-95 ${
                   category === c.id
-                    ? 'border-[#174478] bg-[#174478] text-white shadow-md shadow-[#174478]/20'
-                    : 'border-stone-200 bg-white text-stone-600 hover:border-[#174478]/30 hover:bg-[#eef4fa] hover:text-[#174478] dark:border-stone-700 dark:bg-stone-800 dark:text-stone-300 dark:hover:border-stone-600 dark:hover:bg-stone-700'
+                    ? 'border-amber-400 bg-gradient-to-r from-amber-500 to-amber-600 text-stone-950 shadow-md shadow-amber-500/25'
+                    : 'border-amber-200/80 bg-stone-50 text-stone-700 hover:border-amber-400 hover:bg-amber-50 hover:text-amber-800 dark:border-stone-800 dark:bg-stone-800 dark:text-stone-300 dark:hover:border-amber-500/40 dark:hover:text-amber-300'
                 }`}
               >
                 {c.id !== 'all' && <DeityIcon id={c.id} size={15} />}
@@ -127,7 +127,7 @@ export default function Browse({ type, searchMode = false }) {
           {hasActiveFilter && (
             <button
               onClick={() => { setQuery(''); setCategory('all'); setParams({}, { replace: true }); }}
-              className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-[#174478] transition hover:underline dark:text-sky-300"
+              className="mt-3 inline-flex items-center gap-1.5 text-xs font-extrabold text-amber-800 transition hover:underline dark:text-amber-400"
             >
               <RotateCcw size={12} />
               सर्व फिल्टर साफ करा
@@ -138,17 +138,17 @@ export default function Browse({ type, searchMode = false }) {
 
       {/* ── Results ── */}
       {results.length === 0 ? (
-        <div className="mt-6 rounded-3xl border border-dashed border-stone-300 bg-stone-50/50 p-10 text-center sm:p-14 dark:border-stone-700 dark:bg-stone-900/50">
-          <span className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-[#eef4fa] text-[#174478] dark:bg-stone-800 dark:text-sky-300">
+        <div className="mt-6 rounded-3xl border border-dashed border-amber-300/80 bg-amber-50/40 p-10 text-center sm:p-14 dark:border-stone-700 dark:bg-stone-900/50">
+          <span className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-amber-100/80 text-amber-800 ring-1 ring-amber-300/50 dark:bg-amber-950/60 dark:text-amber-300">
             <Search size={30} />
           </span>
           <h3 className="mt-5 font-[Yatra_One] text-xl text-stone-900 dark:text-stone-50">काही सापडले नाही</h3>
-          <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-stone-500 dark:text-stone-400">
+          <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-stone-600 dark:text-stone-300">
             वेगळे स्पेलिंग वापरून पहा — उदा. "गणेश" ऐवजी "गणपती", किंवा देवता फिल्टर काढा.
           </p>
           <button
             onClick={() => { setQuery(''); setCategory('all'); setParams({}, { replace: true }); }}
-            className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-[#174478] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#1f5799] active:scale-[0.98]"
+            className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 px-6 py-3 text-sm font-extrabold text-stone-950 shadow-md transition hover:from-amber-400 hover:to-amber-500 active:scale-[0.98]"
           >
             <RotateCcw size={14} />
             फिल्टर रीसेट करा

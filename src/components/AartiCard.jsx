@@ -14,22 +14,22 @@ export default function AartiCard({ item }) {
   const viewsEn = toEn(item.views);
 
   return (
-    <article className="fade-up group relative flex flex-col justify-between rounded-2xl border border-stone-200 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#174478]/30 hover:shadow-xl hover:shadow-[#174478]/[0.03] dark:border-stone-800 dark:bg-stone-900 dark:hover:border-stone-700">
+    <article className="fade-up group relative flex flex-col justify-between rounded-2xl border border-amber-200/70 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-amber-400 hover:shadow-xl hover:shadow-amber-500/10 dark:border-stone-800 dark:bg-stone-900/90 dark:hover:border-amber-500/40">
 
       {/* Subtle hover accent line at top */}
-      <div className="absolute inset-x-0 top-0 h-1 rounded-t-2xl bg-gradient-to-r from-transparent via-[#174478]/0 to-transparent transition-all duration-500 group-hover:via-[#174478]/40 dark:group-hover:via-sky-500/40" />
+      <div className="absolute inset-x-0 top-0 h-1 rounded-t-2xl bg-gradient-to-r from-transparent via-amber-400/0 to-transparent transition-all duration-500 group-hover:via-amber-400/80 dark:group-hover:via-amber-500/80" />
 
       <div>
         {/* Header: Icon + Titles */}
         <div className="flex items-start gap-4">
-          <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-stone-50 text-[#174478] shadow-sm ring-1 ring-stone-900/5 transition-transform group-hover:scale-105 dark:bg-stone-800 dark:text-sky-300 dark:ring-white/10">
+          <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-amber-100 to-amber-50 text-amber-800 shadow-xs ring-1 ring-amber-300/50 transition-transform group-hover:scale-105 dark:from-amber-950/60 dark:to-stone-800 dark:text-amber-300 dark:ring-amber-500/30">
             <DeityIcon id={item.category} size={24} />
           </span>
           <div className="min-w-0 flex-1 pt-0.5">
-            <h3 className="line-clamp-1 font-[Yatra_One] text-lg leading-snug tracking-tight text-stone-900 transition-colors group-hover:text-[#174478] dark:text-stone-50 dark:group-hover:text-sky-300">
+            <h3 className="line-clamp-1 font-[Yatra_One] text-lg leading-snug tracking-tight text-stone-900 transition-colors group-hover:text-amber-800 dark:text-stone-50 dark:group-hover:text-amber-300">
               {item.hindiTitle}
             </h3>
-            <p className="mt-0.5 line-clamp-1 text-xs font-medium text-stone-500 dark:text-stone-400">
+            <p className="mt-0.5 line-clamp-1 text-xs font-bold text-stone-500 dark:text-stone-400">
               {item.title}
             </p>
           </div>
@@ -37,17 +37,17 @@ export default function AartiCard({ item }) {
 
         {/* Badges */}
         <div className="mt-4 flex flex-wrap items-center gap-1.5">
-          <span className="inline-flex items-center rounded bg-[#174478]/[0.08] px-1.5 py-0.5 text-[10px] font-bold tracking-wide text-[#174478] uppercase dark:bg-sky-400/10 dark:text-sky-300">
+          <span className="inline-flex items-center rounded bg-amber-100/90 px-1.5 py-0.5 text-[10px] font-black tracking-wide text-amber-900 uppercase border border-amber-300/40 dark:bg-amber-950/60 dark:text-amber-300 dark:border-amber-800/40">
             {item.type === 'aarti' ? 'आरती' : 'भजन'}
           </span>
-          <span className="inline-flex items-center rounded border border-stone-200 bg-white px-1.5 py-0.5 text-[10px] font-medium text-stone-600 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-400">
+          <span className="inline-flex items-center rounded border border-stone-200 bg-stone-50 px-1.5 py-0.5 text-[10px] font-bold text-stone-600 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-400">
             {item.deity}
           </span>
-          <span className="inline-flex items-center rounded border border-stone-200 bg-white px-1.5 py-0.5 text-[10px] font-medium text-stone-600 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-400">
+          <span className="inline-flex items-center rounded border border-stone-200 bg-stone-50 px-1.5 py-0.5 text-[10px] font-bold text-stone-600 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-400">
             {item.language}
           </span>
           {item.featured && (
-            <span className="inline-flex items-center rounded border border-amber-200/60 bg-amber-50 px-1.5 py-0.5 text-[10px] font-semibold text-amber-700 dark:border-amber-900/50 dark:bg-amber-950/30 dark:text-amber-400">
+            <span className="inline-flex items-center rounded border border-amber-300/80 bg-amber-50 px-1.5 py-0.5 text-[10px] font-extrabold text-amber-800 shadow-2xs dark:border-amber-800/60 dark:bg-amber-950/50 dark:text-amber-300">
               ★ विशेष
             </span>
           )}
@@ -61,13 +61,13 @@ export default function AartiCard({ item }) {
 
       <div className="mt-5">
         {/* Meta Stats */}
-        <div className="flex items-center gap-4 text-[11px] font-medium text-stone-500 dark:text-stone-400">
+        <div className="flex items-center gap-4 text-[11px] font-bold text-stone-500 dark:text-stone-400">
           <span className="flex items-center gap-1.5">
-            <Clock size={12} className="text-[#174478]/70 dark:text-sky-400/70" />
+            <Clock size={12} className="text-amber-600 dark:text-amber-400" />
             {durationText}
           </span>
           <span className="flex items-center gap-1.5">
-            <Eye size={12} className="text-[#174478]/70 dark:text-sky-400/70" />
+            <Eye size={12} className="text-amber-600 dark:text-amber-400" />
             {viewsEn} वाचक
           </span>
         </div>
@@ -77,7 +77,7 @@ export default function AartiCard({ item }) {
           <Link
             to={`/read/${item.id}`}
             aria-label={`${item.hindiTitle} वाचा`}
-            className="flex h-10 flex-1 items-center justify-center gap-2 rounded-xl bg-stone-900 text-[13px] font-bold text-white shadow-sm transition hover:bg-[#174478] active:scale-[0.98] dark:bg-stone-800 dark:hover:bg-stone-700"
+            className="flex h-10 flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-[13px] font-extrabold text-stone-950 shadow-sm transition hover:from-amber-400 hover:to-amber-500 active:scale-[0.98]"
           >
             <span>वाचा</span>
             <ArrowRight size={14} />
@@ -86,9 +86,9 @@ export default function AartiCard({ item }) {
             onClick={() => toggleFavorite(item.id)}
             aria-pressed={fav}
             aria-label={fav ? `आवडत्यातून काढा` : `आवडते जतन करा`}
-            className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl border shadow-sm transition active:scale-95 ${fav
-                ? 'border-red-200 bg-red-50 text-red-600 dark:border-red-900/50 dark:bg-red-950/30 dark:text-red-400'
-                : 'border-stone-200 bg-white text-stone-400 hover:border-red-200 hover:text-red-500 dark:border-stone-700 dark:bg-stone-900 dark:hover:border-stone-600 dark:hover:text-red-400'
+            className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl border shadow-xs transition active:scale-95 ${fav
+                ? 'border-red-300 bg-red-50 text-red-600 dark:border-red-900/50 dark:bg-red-950/30 dark:text-red-400'
+                : 'border-stone-200 bg-white text-stone-400 hover:border-amber-300 hover:text-amber-600 dark:border-stone-700 dark:bg-stone-900 dark:hover:border-amber-600 dark:hover:text-amber-400'
               }`}
           >
             <Heart size={16} fill={fav ? 'currentColor' : 'none'} className={fav ? 'scale-110' : ''} />
