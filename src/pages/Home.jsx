@@ -299,26 +299,26 @@ export default function Home() {
 
         <div className="relative grid items-center gap-8 lg:grid-cols-12 lg:gap-12">
 
-          {/* ───────── RIGHT COLUMN: PROFESSIONAL TEMPLE CARD ───────── */}
-          <div className="lg:order-2 lg:col-span-5 w-full">
-            <div className="mx-auto max-w-[380px] sm:max-w-md w-full">
+          {/* ───────── RIGHT COLUMN: COMPACT ELEGANT TEMPLE CARD ───────── */}
+          <div className="lg:order-2 lg:col-span-4 w-full">
+            <div className="mx-auto max-w-[300px] sm:max-w-[320px] w-full">
               
-              {/* Professional White Temple Card Container */}
-              <div className="overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-md dark:border-stone-800 dark:bg-stone-900">
+              {/* Compact White Temple Card Container */}
+              <div className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm dark:border-stone-800 dark:bg-stone-900">
                 
                 {/* 1. TOP BADGE STRIP */}
-                <div className="flex items-center justify-between border-b border-stone-100 bg-stone-50/80 px-4 py-2.5 dark:border-stone-800 dark:bg-stone-800/60">
+                <div className="flex items-center justify-between border-b border-stone-100 bg-stone-50/80 px-3.5 py-2 dark:border-stone-800 dark:bg-stone-800/60">
                   <div className="flex items-center gap-1.5 text-xs font-bold text-[#174478] dark:text-sky-300">
-                    <SacredDiyaIcon size={14} className="text-amber-500 animate-pulse" />
+                    <SacredDiyaIcon size={13} className="text-amber-500 animate-pulse" />
                     <span>स्वयंभू नित्य दर्शन</span>
                   </div>
-                  <span className="rounded-full bg-amber-100/80 px-2.5 py-0.5 text-[11px] font-extrabold text-amber-900 dark:bg-amber-950/80 dark:text-amber-300">
+                  <span className="rounded-full bg-amber-100/80 px-2 py-0.5 text-[10px] font-extrabold text-amber-900 dark:bg-amber-950/80 dark:text-amber-300">
                     ✨ {toMr(diyaCount)}+ दर्शन
                   </span>
                 </div>
 
-                {/* 2. CRISP UNIMPEDED DEITY PHOTO CONTAINER */}
-                <div className="relative aspect-[4/4] sm:aspect-[4/4] w-full overflow-hidden bg-stone-100 dark:bg-stone-950">
+                {/* 2. COMPACT CRISP DEITY PHOTO CONTAINER */}
+                <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-stone-100 dark:bg-stone-950">
                   <img
                     src="/landing-hero.jpeg"
                     alt="॥ स्वयंभू श्री सुकाई देवी प्रसन्न — वाजेवाडी मंदिर ॥"
@@ -346,63 +346,63 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* 3. CLEAN WHITE CAPTION & DETAILS AREA (NO OVERLAPPING!) */}
-                <div className="p-4 sm:p-5 text-center border-t border-stone-100 dark:border-stone-800">
-                  <p className="text-xs font-extrabold tracking-widest text-amber-600 dark:text-amber-400 uppercase">
+                {/* 3. CLEAN COMPACT CAPTION & RITUAL BUTTONS */}
+                <div className="p-3.5 text-center border-t border-stone-100 dark:border-stone-800">
+                  <p className="text-[10px] font-extrabold tracking-widest text-amber-600 dark:text-amber-400 uppercase">
                     ॥ स्वयंभू श्री सुकाई देवी प्रसन्न ॥
                   </p>
-                  <h2 className="mt-0.5 font-[Yatra_One] text-xl text-stone-950 dark:text-stone-50">
+                  <h2 className="mt-0.5 font-[Yatra_One] text-base sm:text-lg text-stone-950 dark:text-stone-50">
                     वाजेवाडी मंदिर · मालघर गाव
                   </h2>
 
-                  {/* 4. RITUAL BUTTONS BAR (Clean White Card Layout) */}
-                  <div className="mt-3.5 grid grid-cols-3 gap-2 rounded-2xl border border-stone-200 bg-stone-50/80 p-1.5 dark:border-stone-800 dark:bg-stone-800/50">
+                  {/* 4. RITUAL BUTTONS BAR */}
+                  <div className="mt-2.5 grid grid-cols-3 gap-1.5 rounded-xl border border-stone-200 bg-stone-50/80 p-1 dark:border-stone-800 dark:bg-stone-800/50">
                     <button
                       type="button"
                       onClick={handleLightDiya}
-                      className={`flex flex-col items-center justify-center gap-1 rounded-xl py-2 px-1 text-[11px] font-bold transition-all duration-200 active:scale-95 ${
+                      className={`flex flex-col items-center justify-center gap-0.5 rounded-lg py-1.5 px-0.5 text-[10px] font-bold transition-all duration-200 active:scale-95 ${
                         diyaLit
                           ? 'bg-[#174478] text-white shadow-xs'
                           : 'bg-white text-stone-800 border border-stone-200/80 hover:bg-stone-100 dark:bg-stone-900 dark:border-stone-700 dark:text-stone-200'
                       }`}
                       aria-label="पवित्र दीप प्रज्वलन करा"
                     >
-                      <span className={`text-base transition-transform ${diyaLit ? 'scale-110 flame' : ''}`}>🪔</span>
+                      <span className={`text-sm transition-transform ${diyaLit ? 'scale-110 flame' : ''}`}>🪔</span>
                       <span className="truncate">{diyaLit ? 'प्रज्वलित' : 'दीप लावा'}</span>
                     </button>
 
                     <button
                       type="button"
                       onClick={handleFlowerShower}
-                      className="flex flex-col items-center justify-center gap-1 rounded-xl bg-white text-stone-800 border border-stone-200/80 py-2 px-1 text-[11px] font-bold transition-all duration-200 hover:bg-stone-100 active:scale-95 dark:bg-stone-900 dark:border-stone-700 dark:text-stone-200"
+                      className="flex flex-col items-center justify-center gap-0.5 rounded-lg bg-white text-stone-800 border border-stone-200/80 py-1.5 px-0.5 text-[10px] font-bold transition-all duration-200 hover:bg-stone-100 active:scale-95 dark:bg-stone-900 dark:border-stone-700 dark:text-stone-200"
                       aria-label="पुष्पवृष्टी करा"
                     >
-                      <span className="text-base">🌸</span>
+                      <span className="text-sm">🌸</span>
                       <span className="truncate">पुष्पवृष्टी</span>
                     </button>
 
                     <button
                       type="button"
                       onClick={handleRingBell}
-                      className="flex flex-col items-center justify-center gap-1 rounded-xl bg-white text-stone-800 border border-stone-200/80 py-2 px-1 text-[11px] font-bold transition-all duration-200 hover:bg-stone-100 active:scale-95 dark:bg-stone-900 dark:border-stone-700 dark:text-stone-200"
+                      className="flex flex-col items-center justify-center gap-0.5 rounded-lg bg-white text-stone-800 border border-stone-200/80 py-1.5 px-0.5 text-[10px] font-bold transition-all duration-200 hover:bg-stone-100 active:scale-95 dark:bg-stone-900 dark:border-stone-700 dark:text-stone-200"
                       aria-label="घंटा नाद अनुभवा"
                     >
-                      <span className={`text-base inline-block ${bellRinging ? 'animate-bell' : ''}`}>🔔</span>
+                      <span className={`text-sm inline-block ${bellRinging ? 'animate-bell' : ''}`}>🔔</span>
                       <span className="truncate">घंटा नाद</span>
                     </button>
                   </div>
 
                   {/* Link to Temple History */}
-                  <div className="mt-3 flex items-center justify-between text-xs text-stone-500 dark:text-stone-400">
+                  <div className="mt-2.5 flex items-center justify-between text-[11px] text-stone-500 dark:text-stone-400">
                     <span className="flex items-center gap-1 font-medium text-stone-500">
-                      <Sparkles size={13} className="text-amber-500" />
+                      <Sparkles size={12} className="text-amber-500" />
                       <span>भक्ती अर्पण करा</span>
                     </span>
                     <Link
                       to="/about"
                       className="font-bold text-[#174478] hover:underline dark:text-sky-400"
                     >
-                      मंदिर इतिहास →
+                      इतिहास →
                     </Link>
                   </div>
 
@@ -414,7 +414,7 @@ export default function Home() {
           </div>
 
           {/* ───────── LEFT COLUMN: TYPOGRAPHY, SEARCH & ACTIONS ───────── */}
-          <div className="lg:order-1 lg:col-span-7 flex flex-col justify-center">
+          <div className="lg:order-1 lg:col-span-8 flex flex-col justify-center">
             
             {/* Village Tag Kicker */}
             <div className="inline-flex w-fit items-center gap-2 rounded-full border border-amber-300/80 bg-amber-50 px-3.5 py-1 text-xs font-bold text-amber-900 dark:border-amber-700/60 dark:bg-amber-950/60 dark:text-amber-300">
