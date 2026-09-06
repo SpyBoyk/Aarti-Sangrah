@@ -22,11 +22,11 @@ export default function AartiCard({ item }) {
       <div>
         {/* Header: Icon + Titles */}
         <div className="flex items-start gap-4">
-          <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-amber-100 to-amber-50 text-amber-800 shadow-xs ring-1 ring-amber-300/50 transition-transform group-hover:scale-105 dark:from-amber-950/60 dark:to-stone-800 dark:text-amber-300 dark:ring-amber-500/30">
+          <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-stone-50 text-[#174478] shadow-xs ring-1 ring-[#174478]/20 transition-transform group-hover:scale-105 dark:bg-stone-800 dark:text-sky-300 dark:ring-sky-400/30">
             <DeityIcon id={item.category} size={24} />
           </span>
           <div className="min-w-0 flex-1 pt-0.5">
-            <h3 className="line-clamp-1 font-[Yatra_One] text-lg leading-snug tracking-tight text-stone-900 transition-colors group-hover:text-amber-800 dark:text-stone-50 dark:group-hover:text-amber-300">
+            <h3 className="line-clamp-1 font-[Yatra_One] text-lg leading-snug tracking-tight text-stone-900 transition-colors group-hover:text-[#174478] dark:text-stone-50 dark:group-hover:text-sky-300">
               {item.hindiTitle}
             </h3>
             <p className="mt-0.5 line-clamp-1 text-xs font-bold text-stone-500 dark:text-stone-400">
@@ -37,7 +37,7 @@ export default function AartiCard({ item }) {
 
         {/* Badges */}
         <div className="mt-4 flex flex-wrap items-center gap-1.5">
-          <span className="inline-flex items-center rounded bg-amber-100/90 px-1.5 py-0.5 text-[10px] font-black tracking-wide text-amber-900 uppercase border border-amber-300/40 dark:bg-amber-950/60 dark:text-amber-300 dark:border-amber-800/40">
+          <span className="inline-flex items-center rounded bg-[#174478]/[0.08] px-1.5 py-0.5 text-[10px] font-black tracking-wide text-[#174478] uppercase border border-[#174478]/20 dark:bg-sky-400/10 dark:text-sky-300 dark:border-sky-400/30">
             {item.type === 'aarti' ? 'आरती' : 'भजन'}
           </span>
           <span className="inline-flex items-center rounded border border-stone-200 bg-stone-50 px-1.5 py-0.5 text-[10px] font-bold text-stone-600 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-400">
@@ -63,11 +63,11 @@ export default function AartiCard({ item }) {
         {/* Meta Stats */}
         <div className="flex items-center gap-4 text-[11px] font-bold text-stone-500 dark:text-stone-400">
           <span className="flex items-center gap-1.5">
-            <Clock size={12} className="text-amber-600 dark:text-amber-400" />
+            <Clock size={12} className="text-[#174478] dark:text-sky-400" />
             {durationText}
           </span>
           <span className="flex items-center gap-1.5">
-            <Eye size={12} className="text-amber-600 dark:text-amber-400" />
+            <Eye size={12} className="text-[#174478] dark:text-sky-400" />
             {viewsEn} वाचक
           </span>
         </div>
@@ -77,7 +77,7 @@ export default function AartiCard({ item }) {
           <Link
             to={`/read/${item.id}`}
             aria-label={`${item.hindiTitle} वाचा`}
-            className="flex h-10 flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-[13px] font-extrabold text-stone-950 shadow-sm transition hover:from-amber-400 hover:to-amber-500 active:scale-[0.98]"
+            className="flex h-10 flex-1 items-center justify-center gap-2 rounded-xl bg-[#174478] text-[13px] font-extrabold text-white shadow-md shadow-[#174478]/20 transition hover:bg-[#133863] active:scale-[0.98] dark:bg-sky-500 dark:text-stone-950 dark:hover:bg-sky-400"
           >
             <span>वाचा</span>
             <ArrowRight size={14} />
@@ -88,7 +88,7 @@ export default function AartiCard({ item }) {
             aria-label={fav ? `आवडत्यातून काढा` : `आवडते जतन करा`}
             className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl border shadow-xs transition active:scale-95 ${fav
                 ? 'border-red-300 bg-red-50 text-red-600 dark:border-red-900/50 dark:bg-red-950/30 dark:text-red-400'
-                : 'border-stone-200 bg-white text-stone-400 hover:border-amber-300 hover:text-amber-600 dark:border-stone-700 dark:bg-stone-900 dark:hover:border-amber-600 dark:hover:text-amber-400'
+                : 'border-stone-200 bg-white text-stone-400 hover:border-[#174478] hover:text-[#174478] dark:border-stone-700 dark:bg-stone-900 dark:hover:border-sky-400 dark:hover:text-sky-400'
               }`}
           >
             <Heart size={16} fill={fav ? 'currentColor' : 'none'} className={fav ? 'scale-110' : ''} />

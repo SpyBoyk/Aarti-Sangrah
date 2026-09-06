@@ -37,7 +37,7 @@ function MobileNav() {
   return (
     <nav
       aria-label="मोबाईल तळ नेव्हिगेशन"
-      className="fixed inset-x-0 bottom-0 z-50 border-t border-amber-200/80 bg-white/95 backdrop-blur-md md:hidden dark:border-amber-900/40 dark:bg-[#15100c]/95"
+      className="fixed inset-x-0 bottom-0 z-50 border-t border-stone-200 bg-white/95 backdrop-blur-md md:hidden dark:border-stone-800 dark:bg-stone-950/95"
       style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
     >
       <div className="grid grid-cols-5">
@@ -47,14 +47,14 @@ function MobileNav() {
             to={to}
             className={({ isActive }) =>
               `relative flex flex-col items-center gap-0.5 py-2.5 text-[11px] font-extrabold transition active:scale-95 ${
-                isActive ? 'text-amber-900 dark:text-amber-300' : 'text-stone-500 dark:text-stone-400'
+                isActive ? 'text-[#174478] dark:text-sky-300' : 'text-stone-500 dark:text-stone-400'
               }`
             }
           >
             {({ isActive }) => (
               <>
                 <span className={`grid h-7 w-12 place-items-center rounded-full transition-all duration-300 ${
-                  isActive ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-stone-950 shadow-md shadow-amber-500/30 font-bold' : ''
+                  isActive ? 'bg-[#174478] text-white shadow-md shadow-[#174478]/30 font-bold dark:bg-sky-500 dark:text-stone-950' : ''
                 }`}>
                   <Icon size={18} />
                 </span>

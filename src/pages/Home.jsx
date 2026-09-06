@@ -530,48 +530,50 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════════════ DEITY CIRCULAR STORIES STRIP ═══════════════ */}
-      <section aria-label="देवता दर्शन पट्टी" className="relative">
+      {/* ═══════════════ DEITY CIRCULAR STORIES STRIP (MOVING ANIMATION) ═══════════════ */}
+      <section aria-label="देवता दर्शन पट्टी" className="relative overflow-hidden">
         <div className="mb-3.5 flex items-center justify-between px-1">
           <div className="flex items-center gap-2">
-            <SacredDiyaIcon size={16} className="text-amber-600 dark:text-amber-400" />
-            <h2 className="font-[Yatra_One] text-base sm:text-lg text-stone-900 dark:text-stone-100">
+            <SacredDiyaIcon size={16} className="text-[#174478] dark:text-sky-400" />
+            <h2 className="font-[Yatra_One] text-base sm:text-lg text-stone-950 dark:text-stone-100">
               आराध्य देवता दर्शन
             </h2>
           </div>
           <Link
             to="/categories"
-            className="text-xs font-bold text-amber-700 hover:underline dark:text-amber-400"
+            className="text-xs font-extrabold text-[#174478] hover:underline dark:text-sky-300"
           >
             सर्व श्रेणी पहा →
           </Link>
         </div>
 
-        {/* Horizontally scrollable stories */}
-        <div className="no-scrollbar flex items-center gap-4 overflow-x-auto pb-2.5 pt-1 px-1">
-          {DEITY_STORIES.map((d) => {
-            const count = categoryCounts[d.id] || 0;
-            return (
-              <Link
-                key={d.id}
-                to={`/aartis?category=${d.id}`}
-                className="group flex flex-col items-center shrink-0 text-center transition-transform active:scale-95"
-              >
-                {/* Glowing Circular Avatar */}
-                <div className="relative p-0.5 rounded-full bg-gradient-to-tr from-amber-500 via-orange-400 to-amber-300 shadow-md transition-all duration-300 group-hover:shadow-amber-500/40 group-hover:scale-105">
-                  <div className="flex h-15 w-15 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-white dark:bg-stone-900">
-                    <DeityIcon id={d.id} size={28} className="text-amber-700 dark:text-amber-300 transition-transform group-hover:scale-110" />
+        {/* Continuous Infinite Moving Animation Marquee Track */}
+        <div className="relative w-full overflow-hidden py-1">
+          <div className="flex w-max items-center gap-5 sm:gap-6 animate-marquee hover:[animation-play-state:paused]">
+            {[...DEITY_STORIES, ...DEITY_STORIES].map((d, idx) => {
+              const count = categoryCounts[d.id] || 0;
+              return (
+                <Link
+                  key={`${d.id}-${idx}`}
+                  to={`/aartis?category=${d.id}`}
+                  className="group flex flex-col items-center shrink-0 text-center transition-transform active:scale-95"
+                >
+                  {/* Glowing Circular Avatar with #174478 & Gold ring */}
+                  <div className="relative p-0.5 rounded-full bg-gradient-to-tr from-[#174478] via-amber-500 to-[#174478] shadow-md transition-all duration-300 group-hover:shadow-[#174478]/40 group-hover:scale-105">
+                    <div className="flex h-15 w-15 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-white dark:bg-stone-900">
+                      <DeityIcon id={d.id} size={28} className="text-[#174478] dark:text-sky-300 transition-transform group-hover:scale-110" />
+                    </div>
                   </div>
-                </div>
-                <span className="mt-2 block max-w-[82px] truncate text-xs font-bold text-stone-800 group-hover:text-amber-700 dark:text-stone-200 dark:group-hover:text-amber-300">
-                  {d.name}
-                </span>
-                <span className="text-[11px] font-semibold text-stone-500 dark:text-stone-400">
-                  {toMr(count)} आरत्या
-                </span>
-              </Link>
-            );
-          })}
+                  <span className="mt-2 block max-w-[85px] truncate text-xs font-bold text-stone-900 group-hover:text-[#174478] dark:text-stone-100 dark:group-hover:text-sky-300">
+                    {d.name}
+                  </span>
+                  <span className="text-[11px] font-extrabold text-[#174478] dark:text-sky-400">
+                    {toMr(count)} आरत्या
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </section>
 

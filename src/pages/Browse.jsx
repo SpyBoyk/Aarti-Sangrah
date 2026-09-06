@@ -113,8 +113,8 @@ export default function Browse({ type, searchMode = false }) {
                 aria-pressed={category === c.id}
                 className={`inline-flex shrink-0 items-center gap-1.5 rounded-full border px-3.5 py-2 text-xs font-extrabold transition-all active:scale-95 ${
                   category === c.id
-                    ? 'border-amber-400 bg-gradient-to-r from-amber-500 to-amber-600 text-stone-950 shadow-md shadow-amber-500/25'
-                    : 'border-amber-200/80 bg-stone-50 text-stone-700 hover:border-amber-400 hover:bg-amber-50 hover:text-amber-800 dark:border-stone-800 dark:bg-stone-800 dark:text-stone-300 dark:hover:border-amber-500/40 dark:hover:text-amber-300'
+                    ? 'border-[#174478] bg-[#174478] text-white shadow-md shadow-[#174478]/25 dark:bg-sky-500 dark:text-stone-950'
+                    : 'border-stone-200 bg-white text-stone-700 hover:border-[#174478]/40 hover:bg-[#174478]/[0.06] hover:text-[#174478] dark:border-stone-800 dark:bg-stone-800 dark:text-stone-300 dark:hover:border-sky-400 dark:hover:text-sky-300'
                 }`}
               >
                 {c.id !== 'all' && <DeityIcon id={c.id} size={15} />}
@@ -127,7 +127,7 @@ export default function Browse({ type, searchMode = false }) {
           {hasActiveFilter && (
             <button
               onClick={() => { setQuery(''); setCategory('all'); setParams({}, { replace: true }); }}
-              className="mt-3 inline-flex items-center gap-1.5 text-xs font-extrabold text-amber-800 transition hover:underline dark:text-amber-400"
+              className="mt-3 inline-flex items-center gap-1.5 text-xs font-extrabold text-[#174478] transition hover:underline dark:text-sky-300"
             >
               <RotateCcw size={12} />
               सर्व फिल्टर साफ करा
