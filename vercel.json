@@ -1,4 +1,5 @@
 {
+  "name": "aarti-sangrah",
   "rewrites": [
     {
       "source": "/(.*)",
